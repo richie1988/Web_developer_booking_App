@@ -1,2 +1,24 @@
-# Web-Developers-Booking-App
-The Web Developer Booking Platform is a comprehensive solution that facilitates the scheduling and management of appointments with skilled web developers. The platform is built using React for the frontend and Rails for the backend, providing a seamless and responsive user experience.
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
