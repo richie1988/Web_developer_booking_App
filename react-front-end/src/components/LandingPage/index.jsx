@@ -1,8 +1,6 @@
 // LandingPage.js
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './LandingPage.css';
-
+import '../../styles/LandingPage.css';
 const LandingPage = () => {
   return (
     <div className="landing-page">
