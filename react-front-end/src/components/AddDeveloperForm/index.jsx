@@ -11,10 +11,15 @@ function AddDeveloper() {
     city: '',
     email: '',
     apr: '',
+    profileImage: null,
   });
 
   const handleInputChange = (e) => {
-    setDeveloper({ ...developer, [e.target.name]: e.target.value });
+    if (e.target.name === 'profileImage') {
+      setDeveloper({ ...developer, [e.target.name]: e.target.files[0] });
+    } else {
+      setDeveloper({ ...developer, [e.target.name]: e.target.value });
+    }
   };
 
   const handleAddDeveloper = (e) => {
@@ -32,6 +37,7 @@ function AddDeveloper() {
         <input type="text" name="city" value={developer.city} onChange={handleInputChange} placeholder="City" />
         <input type="email" name="email" value={developer.email} onChange={handleInputChange} placeholder="Email" />
         <input type="text" name="apr" value={developer.apr} onChange={handleInputChange} placeholder="APR" />
+        <input type="file" name="profileImage" onChange={handleInputChange} />
         <button type="submit">Add Developer</button>
       </form>
     </div>

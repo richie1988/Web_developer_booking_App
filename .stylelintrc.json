@@ -34,5 +34,7 @@
        "**/reset*.css",
       "**/bootstrap*.css",
       "assets/css/**",
-      "public/assets/**" ]
+      "public/assets/**",
+      "react-front-end/**"
+     ]
   }
