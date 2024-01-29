@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
   namespace :api do
-    get 'message' => 'messages#index'
+    get 'example' => 'example#index'
+    post 'login' => 'users#login'
+    post 'register' => 'users#register'
+    put 'update-account' => 'users#update'
   end
 
   Rails.application.routes.draw do

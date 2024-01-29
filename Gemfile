@@ -25,6 +25,7 @@ gem 'bootsnap', require: false
 group :development, :test do
   gem 'capybara'
   gem 'debug', platforms: %i[mri windows]
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
 
@@ -43,3 +44,5 @@ gem 'devise'
 gem 'carrierwave'
 
 gem 'cancancan'
+
+gem 'jwt'
