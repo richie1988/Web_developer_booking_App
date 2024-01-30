@@ -53,3 +53,7 @@ gem 'cancancan'
 gem 'jwt'
 
 gem 'rack-cors'
+
+gem 'cssbundling-rails'
+
+gem 'sassc', '~> 2.4'
