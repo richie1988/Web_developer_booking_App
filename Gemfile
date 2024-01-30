@@ -43,3 +43,7 @@ gem 'devise'
 gem 'carrierwave'
 
 gem 'cancancan'
+
+gem 'cssbundling-rails'
+
+gem 'sassc', '~> 2.4'
