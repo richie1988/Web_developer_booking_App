@@ -46,16 +46,16 @@ RSpec.describe Api::UsersController, type: :controller do
     let(:current_username) { 'existing_username' }
 
     context 'with valid parameters and valid bearer token' do
-      let(:valid_token) { 
+      let(:valid_token) do
         payload = {}
         payload[:exp] = 7.days.from_now.to_i
         payload[:user_id] = user.id
         JWT.encode(payload, SECRET_KEY)
-      }
+      end
 
       before do
         request.headers['Authorization'] = "Bearer #{valid_token}"
-        put :update, params: { new_username: new_username, current_username: current_username }
+        put :update, params: { new_username:, current_username: }
       end
 
       it 'returns HTTP success' do
@@ -71,6 +71,5 @@ RSpec.describe Api::UsersController, type: :controller do
         expect(JSON.parse(response.body)['message']).to eq('User successfully updated')
       end
     end
-    
   end
 end
