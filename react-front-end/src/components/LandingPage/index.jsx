@@ -2,19 +2,27 @@
 import React from 'react';
 import '../../styles/LandingPage.css';
 
-
- function LandingPage () {
-  return (
-    <div className="landing-page">
-      <div className="background-image">
-        {/* This is the place for background image */}
-      </div>
-      <div className="content">
-        <h1>Welcome to Book a Web Developer App!</h1>
-        <p>Make your business grow. Explore and enjoy!</p>
-      </div>
+const WelcomePage = () => (
+  <div className="welcome-container">
+    <h3 className="welcome-title">
+      WELLCOME TO BOOK A WEB DEVELOPER APP
+    </h3>
+    <div className="button-container">
+      <a
+        href="http://127.0.0.1:3000/signup"
+        className="signup-button"
+      >
+        Sign Up
+      </a>
+      <a
+        href="http://127.0.0.1:3000/login"
+        className="signin-button"
+      >
+        Login
+      </a>
     </div>
-  );
-};
+  </div>
+);
 
-export default LandingPage;
+export default WelcomePage;
+

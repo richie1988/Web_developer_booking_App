@@ -1,0 +1,41 @@
+/* developersDetails.css */
+.developer-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Divide the card into three columns */
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+    position: relative;
+  }
+  
+  .developer-card .image-container {
+    grid-column: 2; /* Place the image in the center column */
+  }
+  
+  .developer-card .image-container img {
+    width: 300px; /* increased size for desktop */
+    height: 300px; /* increased size for desktop */
+  }
+  
+  .developer-card .info {
+    grid-column: 3; /* Place the info in the right column */
+    font-size: 1.5em; /* increased font size for desktop */
+  }
+  
+  .developer-card .back-button {
+    position: absolute; /* position the button absolutely */
+    bottom: 10px; /* position it at the bottom left corner */
+    left: 10px;
+  }
+  
+  /* Responsive design for mobile */
+  @media (max-width: 600px) {
+    .developer-card .image-container img {
+      width: 100px;
+      height: 100px;
+    }
+    .developer-card .info {
+      font-size: 1em; /* reset font size for mobile */
+    }
+  }

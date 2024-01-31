@@ -1,0 +1,97 @@
+/* developersList.css */
+.developer-list-card {
+  width: 100%;
+  height:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+}
+
+.developer-list-card .image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.developer-list-card .image-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.developer-list-card .info {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.developer-list-card .info h2 {
+  margin-bottom: 10px;
+}
+
+.developer-list-card .info p {
+  margin-bottom: 10px;
+}
+
+.developer-list-card .info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.developer-list-card .info ul li {
+  margin-bottom: 5px;
+}
+
+.developer-list-card .info ul li a {
+  color: blue;
+  text-decoration: none;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 600px) {
+  .developer-list-card .image-container img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* carouselStyles.css */
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: green;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgb(238, 122, 6);
+  color: green;
+  border: 1px solid green;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+/* Center the buttons horizontally */
+.carousel-control-prev {
+  left: 0;
+}
+
+.carousel-control-next {
+  right: 0;
+}
+
+.card-body span {
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration:none;
+}
+.developer-list-card:hover {
+  transform: scale(1.05);
+  transition: transform .2s;
+  cursor:pointer;
+}

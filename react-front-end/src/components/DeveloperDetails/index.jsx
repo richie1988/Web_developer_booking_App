@@ -2,13 +2,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import DeveloperCard from '../DeveloperCard';
 
 function DeveloperDetails() {
   const { id } = useParams();
-  const developer = useSelector((state) => state.developers.find((dev) => dev.id === parseInt(id)));
+  const developer = useSelector((state) => Array.isArray(state.developers) ? state.developers.find((dev) => dev.id === parseInt(id)) : null);
 
   if (!developer) {
-    return <div>Developer not found</div>;
+    return <div>
+      Developer not found
+
+      <DeveloperCard  />
+
+      </div>;
   }
 
   return (
