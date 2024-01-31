@@ -77,33 +77,37 @@ function AddDeveloper() {
         <label htmlFor="email" className="form-label">Email</label>
         <input type="email" className="form-control" id="email" name="email" value={developer.email} onChange={handleInputChange} />
       </div>
-      <div className="col-12">
+      <div className="col-6">
         <label htmlFor="profileImage" className="form-label">Profile Image</label>
         <input type="file" className="form-control" id="profileImage" name="profileImage" onChange={handleInputChange} />
       </div>
-        <div className="col-12">
+        <div className="col-6">
           <label htmlFor="skills" className="form-label">Skills</label>
-          {developer.skills.map((skill, index) => (
-            <div key={index} className="input-group mb-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Enter skill"
-                value={skill}
-                onChange={(e) => handleSkillInputChange(index, e.target.value)}
-              />
-              <button
-                type="button"
-                className="btn btn-outline-danger"
-                onClick={() => handleRemoveSkill(index)}
-              >
-                Remove
-              </button>
-            </div>
-          ))}
-          <button type="button" className="btn btn-success" onClick={handleAddSkill}>
-            Add Skill
-          </button>
+          <div className="d-flex align-items-start">
+  <button type="button" className="btn btn-success me-3" onClick={handleAddSkill}>
+    Add Skill
+  </button>
+  <div>
+    {(developer.skills.length > 0 ? developer.skills : ['']).map((skill, index) => (
+      <div key={index} className="input-group mb-3">
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Enter skill"
+          value={skill}
+          onChange={(e) => handleSkillInputChange(index, e.target.value)}
+        />
+        <button
+          type="button"
+          className="btn btn-outline-danger"
+          onClick={() => handleRemoveSkill(index)}
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
         </div>
         <div className="col-12">
           <button type="submit" className="btn btn-primary">Add Developer</button>

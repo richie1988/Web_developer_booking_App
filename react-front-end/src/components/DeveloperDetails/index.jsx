@@ -1,34 +1,55 @@
-// DeveloperDetails.jsx
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+// src/components/DeveloperDetail.js
+import React, { useState, useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { getDeveloper, deleteDeveloper } from '../../redux/actions/DevelopersActions'; // Updated import
 import DeveloperCard from '../DeveloperCard';
 
-function DeveloperDetails() {
+const DeveloperDetail = () => {
   const { id } = useParams();
-  const developer = useSelector((state) => Array.isArray(state.developers) ? state.developers.find((dev) => dev.id === parseInt(id)) : null);
+  const navigate = useNavigate();
+  const [developer, setDeveloper] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchDeveloper = async () => {
+      try {
+        const response = await getDeveloper(id);
+        setDeveloper(response.data);
+      } catch (error) {
+        console.error('Error fetching developer', error);
+        setError('Error fetching developer');
+      }
+    };
+
+    fetchDeveloper();
+  }, [id]);
+
+  const handleDelete = async () => {
+    try {
+      await deleteDeveloper(id);
+      navigate('/developers');
+    } catch (error) {
+      console.error('Error deleting developer', error);
+      setError('Error deleting developer');
+    }
+  };
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   if (!developer) {
-    return <div>
-      Developer not found
-
-      <DeveloperCard  />
-
-      </div>;
+    return <div>Loading... <DeveloperCard  /></div>;
   }
 
   return (
     <div>
-      <h1>Developer Details Page</h1>
-      <p>
-        <strong>Name:</strong> {developer.fullName}
-      </p>
-      {/* Add other developer details */}
-      <Link to="/developers">
-        <button>Back to Developers List</button>
-      </Link>
+      <h2>{developer.fullName}</h2>
+      {/* Display other developer information as needed */}
+      <Link to={`/developers/${id}/edit`}>Edit Developer</Link>
+      <button onClick={handleDelete}>Delete Developer</button>
     </div>
   );
-}
+};
 
-export default DeveloperDetails;
+export default DeveloperDetail;
