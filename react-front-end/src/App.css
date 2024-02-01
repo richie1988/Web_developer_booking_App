@@ -2,5 +2,5 @@
   display: grid;
   grid-template-columns: 12rem 1fr;
   min-height: 200vh;
-  gap: 4rem;
+  gap: 16rem;
 }
