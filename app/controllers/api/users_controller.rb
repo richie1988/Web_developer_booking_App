@@ -4,7 +4,7 @@ class Api::UsersController < ActionController::API
   before_action :check_auth_params!, only: %i[register login]
   before_action :authenticate_api_user!, only: %i[update]
   before_action :check_body_params!, only: %i[update]
-
+  
   def register
     @user = User.new(username: params[:username])
 
