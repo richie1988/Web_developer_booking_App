@@ -22,10 +22,16 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 
 gem 'bootsnap', require: false
 
+gem 'rswag-api'
+
+gem 'rswag-ui'
+
 group :development, :test do
   gem 'capybara'
   gem 'debug', platforms: %i[mri windows]
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'rswag-specs'
 end
 
 group :development do
@@ -43,6 +49,10 @@ gem 'devise'
 gem 'carrierwave'
 
 gem 'cancancan'
+
+gem 'jwt'
+
+gem 'rack-cors'
 
 gem 'cssbundling-rails'
 
