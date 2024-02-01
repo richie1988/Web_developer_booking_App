@@ -1,55 +1,52 @@
+/* Navbar.css */
+
 .logo-icon {
   height: 150px;
   width: 150px;
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  height: 50vh;
-  background-color: #ffffff;
-  width: 20%;
+.container-Navbar {
   border-right: 3px solid #dcd2d2;
+  text-align: center;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 .links-navbar {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 43.5vh;
-  background-color: #ffffff;
-  width: 20%;
-  gap: 10px;
+  align-items: right;
   font-size: 24px;
+  gap: 15px;
+  margin-top: 90px;
   font-weight: bolder;
   color: rgb(80, 3, 158);
-  border-right: 3px solid #dcd2d2;
+  text-transform: uppercase;
 }
 
 .links-navbar a {
   text-decoration: none;
   color: #333;
-  padding: 10px;
-  transition: background-color 0.3s;
-  width: 100%;
+  transition: background-color 0.3s, color 0.3s; /* Added color transition */
   font-weight: bold;
+}
+
+.links-navbar a:hover {
+  color: white;
+  background-color: green;
 }
 
 .heading-title {
   font-size: larger;
   font-family: "Ink Free", Times, serif;
   font-weight: bolder;
-  margin-left: 23px;
 }
 
-.footer{
+.footer {
   display: flex;
   gap: 10px;
   margin: auto;
   color: #333;
-  background-color: #ffffff;
-  width: 20%;
-  margin-left: 0%;
-  border-right: 3px solid #dcd2d2;
   padding-bottom: 15px;
 }

@@ -15,7 +15,7 @@ import Navbar from './components/NavBar/Navbar';
 function App() {
 
   return (
-    <>
+    <div className="container-landing-page">
       <Navbar />
       <div>
         <div className="App">
@@ -32,7 +32,7 @@ function App() {
           </Routes>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
