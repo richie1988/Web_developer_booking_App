@@ -1,8 +1,8 @@
 /* Navbar.css */
 
 .logo-icon {
-  height: 150px;
-  width: 150px;
+  height: 80%;
+  width: 80%;
   margin-left: 20px;
 }
 
@@ -20,7 +20,7 @@
   align-items: center;
   font-size: 24px;
   gap: 15px;
-  margin-top: 30px; /* Adjust margin for smaller screens */
+  margin-top: 30px;
   font-weight: bolder;
   color: rgb(80, 3, 158);
   text-transform: uppercase;
@@ -52,7 +52,6 @@
   padding-bottom: 15px;
 }
 
-/* For screens with a max width of 768px (typical tablet size) */
 @media screen and (max-width: 768px) {
   .container-Navbar {
     grid-template-rows: auto auto auto; 
@@ -61,44 +60,29 @@
   .links-navbar {
     margin-top: 0; 
   }
+
+  .logo-icon {
+    height: 50%;
+    width: 60%;
+  }
 }
 
-/* For screens with a max width of 480px */
 @media screen and (max-width: 480px) {
   .container-Navbar {
     grid-template-rows: auto auto auto; 
   }
 
   .logo-icon {
-    height: 100px;
-    width: 100px;
+    height: 40%;
+    width: 60%;
   }
 
   .heading-title {
     font-size: large;
   }
 
-  .links-navbar {
-    display: none;
-    margin-top: 0;
-  }
-
   .links-navbar.show {
     display: flex;
     flex-direction: column;
-  }
-
-  .hamburger-btn {
-    display: block;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-
-  .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 6px 0;
-    transition: 0.4s;
   }
 }
