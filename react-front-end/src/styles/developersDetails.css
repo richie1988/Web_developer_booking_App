@@ -1,57 +1,87 @@
 /* developersDetails.css */
 .developer-card {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
-    align-items: center;
-    position: relative;
-  }
-  
-  .developer-card .image-container {
-    grid-column: 2;
-  }
-  
-  .developer-card .image-container img {
-    width: 300px;
-    height: 300px; 
-  }
-  
-  .developer-card .info {
-    grid-column: 3;
-    font-size: 1.5em;
-  }
-  
-  .developer-card .back-button {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-  }
-  
-  /* Responsive design for mobile */
-  @media (max-width: 600px) {
-    .developer-card .image-container img {
-      width: 100px;
-      height: 100px;
-    }
-    .developer-card .info {
-      font-size: 1em;
-    }
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  align-items: center;
+  position: relative;
+}
+
+.developer-card .image-container {
+  grid-column: 2;
+}
+
+.developer-card .image-container img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover; 
+}
+
+.developer-card .info {
+  grid-column: 3;
+  font-size: 1.5em;
+}
+
+.developer-card .back-button {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.view-skills-btn {
+  font-size: 0.8em;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 600px) {
+  .developer-card {
+    grid-template-columns: 1fr;
   }
 
+  .developer-card .image-container,
+  .developer-card .info {
+    grid-column: 1;
+  }
+
+  .developer-card .image-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  .developer-card .info {
+    font-size: 1em;
+  }
+  .setting-btn {
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+  }
+
+  .reserve-btn {
+    font-size: 0.5em;
+  }
+}
+
+.reserve-btn {
+  margin: 10px 0;
+  font-size: 1em;
+}
+/* Rest of your CSS... */
   .info ul {
     list-style: none;
-    padding: 0; 
+    padding: 0;
   }
   
   .info ul li {
     padding: 5px;
-    box-shadow: 0px 0px 5px 0px green;
+    box-shadow: 0px 0px 5px 0px #97bf0f;
   }
   
-  .info ul li:nth-child(odd) {
+  .info ul li:nth-child(even) {
     background-color: #f3f3f3;
+    border: none;
   }
   
 
@@ -79,4 +109,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: #f1f2f3;
+}
+
+.back-buttonn {
+  background-color: #97bf0f;
+  color: #f1f2f3;
+  border: 1px solid #97bf0f;
+  padding: 5px 20px;
+  border-radius: 10% 50% 50% 10%;
 }

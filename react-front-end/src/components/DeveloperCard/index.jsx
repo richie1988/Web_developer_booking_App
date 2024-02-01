@@ -24,9 +24,9 @@ function DeveloperCard() {
           <li>Hourly Rate: {developer.hourlyRate}</li>
           <li>City: {developer.city}</li>
           <li>Email: {developer.email}</li>
-          <li>APR: {developer.apr}</li>
+          <li>{developer.apr}% Represe</li>
           <li>
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#skillsModal">
+            <button type="button" className="btn btn-primary view-skills-btn" data-bs-toggle="modal" data-bs-target="#skillsModal">
               View Skills
             </button>
             <div className="developer-progress-container">
@@ -35,14 +35,14 @@ function DeveloperCard() {
             </div>
           </div>
           </li>
-          <Link to={`/config/${developer.id}`}>
-            <button className="btn btn-warning"><i class="fa fa-cog"></i> Settings</button>
+          <Link to={`/config/${developer.id}`} className="setting-btn">
+            <button className="btn btn-warning reserve-btn"><i class="fa fa-cog"></i> Reserve <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></button>
           </Link>
         </ul>
         <SkillsModal skills={developer.skills} />
       </div>
       <Link to="/developers" className="back-button">
-        <button type="button" class="btn btn-success"><i class="fa fa-chevron-left" aria-hidden="true">Back</i></button>
+        <button type="button" class="btn btn-success back-buttonn"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
       </Link>
     </div>
   );

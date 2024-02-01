@@ -5,7 +5,7 @@ import './index.css';
 import App from './App';
 import store from './redux/store';
 
-const root = document.getElementById('root');
+const root = document.getElementById('main');
 
 if (!root) {
   throw new Error("No root element found");

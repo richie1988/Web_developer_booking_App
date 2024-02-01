@@ -12,11 +12,13 @@ import DeleteDeveloperList from './components/DeleteDeveloperList';
 import HomePage from './components/HomePage';
 import Login from './components/Login';
 import Signup from './components/Signup';
+// import Navbar from './components/Navbar';
 
 function App() {
 
   return (
     <Router>
+      {/* <Navbar /> */}
       <div className="App">
         <Routes>
         {/* <Route path="/Login" element={<Login />} />
@@ -33,7 +35,7 @@ function App() {
             <Link to="/developersList">Developers</Link>
             <Link to="/add-developers">Add Developer</Link>
             <Link to="/my-reservations">My Reservations</Link>
-    </nav>
+             </nav>
               <Routes>
                 <Route index element={<HomePage />} />
                 <Route path="/developersList" element={<DeveloperList />} />

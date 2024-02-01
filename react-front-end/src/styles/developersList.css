@@ -59,21 +59,26 @@
 /* carouselStyles.css */
 .carousel-control-prev,
 .carousel-control-next {
-  background-color: green;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 20%;
   margin-top: auto;
   margin-bottom: auto;
 }
 
-.carousel-control-prev-icon,
+.carousel-control-prev-icon{
+  background-color:#97bf0f;
+  color: #97bf0f;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10% 50% 50% 10%;
+}
 .carousel-control-next-icon {
-  background-color: rgb(238, 122, 6);
-  color: green;
-  border: 1px solid green;
-  padding: 15px;
-  border-radius: 50%;
+  background-color: #97bf0f;
+  color: #97bf0f;
+  border: 1px solid #97bf0f;
+  padding: 10px 20px;
+  border-radius: 50% 10% 10% 50%;
 }
 
 /* Center the buttons horizontally */
@@ -94,4 +99,10 @@
   transform: scale(1.05);
   transition: transform .2s;
   cursor:pointer;
+}
+
+.dotted-line {
+  border-top: 6px dotted black;
+  width: 50%;
+  margin: 10px auto;
 }

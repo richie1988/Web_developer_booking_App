@@ -93,14 +93,8 @@ function DeveloperCardList() {
                  <img src={developerImage} alt="developer" />
                  <div className="card-body">
                    <h2>{developer.name}</h2>
+                   <hr className="dotted-line" />
                    <p>{developer.description}</p>
-                 </div>
-                 <div className="card-body">
-                   <div className="d-flex flex-row justify-content-center">
-                     {developer.skills.map((skill, k) => (
-                       <span key={k} className="card-link">{skill}</span>
-                     ))}
-                   </div>
                  </div>
                  <div className="card-body">
                    {developer.socialMedia.map((social, j) => (
