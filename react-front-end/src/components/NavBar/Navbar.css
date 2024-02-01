@@ -1,0 +1,54 @@
+.logo-icon {
+  height: 150px;
+  width: 150px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  background-color: #f5ebeb;
+  width: 20%;
+  border-right: 3px solid #dcd2d2;
+}
+
+.links-navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 43.5vh;
+  background-color: #f5ebeb;
+  width: 20%;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: bolder;
+  color: rgb(80, 3, 158);
+  border-right: 3px solid #dcd2d2;
+}
+
+.links-navbar a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  transition: background-color 0.3s;
+  width: 100%;
+  font-weight: bold;
+}
+
+.heading-title {
+  font-size: larger;
+  font-family: "Ink Free", Times, serif;
+  font-weight: bolder;
+}
+
+.footer{
+  display: flex;
+  gap: 10px;
+  margin: auto;
+  color: #333;
+  background-color: #f5ebeb;
+  width: 20%;
+  margin-left: 0%;
+  border-right: 3px solid #dcd2d2;
+  padding-bottom: 15px;
+}
