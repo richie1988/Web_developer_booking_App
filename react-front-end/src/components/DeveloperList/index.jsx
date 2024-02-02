@@ -2,7 +2,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDevelopers } from '../../redux/actions/DevelopersActions';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import DeveloperListCard from '../DeveloperListCard'
 
 function DevelopersList() {
   const dispatch = useDispatch();
@@ -26,7 +27,10 @@ function DevelopersList() {
             </li>
           ))
         ) : (
-          <li>No developers to display</li>
+          <div>
+            No developers to display
+            <DeveloperListCard />
+            </div>
         )}
       </ul>
     </div>

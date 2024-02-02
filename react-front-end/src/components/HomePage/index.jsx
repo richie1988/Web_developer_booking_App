@@ -1,19 +1,18 @@
 // Home.jsx
 import React from 'react';
-import '../../styles/LandingPage.css';
+import '../../styles/homePage.css';
+// import Logout from '../Logout/index.jsx';
 
 function Home() {
   return (
     <div className="landing-page">
+      {/* <Logout /> */}
       <div className="background-image">
         {/* This is the place for background image */}
       </div>
       <div className="content">
         <h1>Welcome to Book a Web Developer App!</h1>
-        <div className="buttons">
-          <button className="explore-button">Login</button>
-          <button className="book-button">Signup</button>
-        </div>
+        <p>Make your business grow. Explore and enjoy!</p>
       </div>
     </div>
   );

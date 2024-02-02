@@ -6,7 +6,7 @@ import App from './App';
 import store from './redux/store';
 import { BrowserRouter } from 'react-router-dom';
 
-const root = document.getElementById('root');
+const root = document.getElementById('main');
 
 if (!root) {
   throw new Error("No root element found");
