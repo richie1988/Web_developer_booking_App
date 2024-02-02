@@ -22,7 +22,6 @@ RSpec.describe 'api/web_developers', type: :request do
       end
     end
 
-
     post('create web_developer') do
       tags 'Web Developers'
       consumes 'application/json'
@@ -77,7 +76,6 @@ RSpec.describe 'api/web_developers', type: :request do
         run_test!
       end
     end
-
 
     path '/api/web_developers/new' do
       get('new web_developer') do
@@ -170,7 +168,6 @@ RSpec.describe 'api/web_developers', type: :request do
           run_test!
         end
       end
-
 
       put('update web_developer') do
         tags 'Web Developers'
