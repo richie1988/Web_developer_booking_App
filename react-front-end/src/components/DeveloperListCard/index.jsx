@@ -85,7 +85,7 @@ function DeveloperCardList() {
     <Carousel interval={null}>
       {developersChunks.map((chunk, index) => (
         <Carousel.Item key={index}>
-          <div className="d-flex justify-content-around">
+          <div className="d-flex justify-content-around colorsel-container">
             {chunk.map((developer, i) => (
              <div key={i} className="developer-list-card" style={{cursor: "pointer"}}>
              <a href={`/developerDetails/${developer.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>

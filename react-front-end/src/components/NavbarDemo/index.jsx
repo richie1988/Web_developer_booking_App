@@ -1,32 +1,37 @@
-// import React from 'react'
-// import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-// import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-// import '../../styles/LandingPage.css';
+// Sidebar.js
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
-// function Navbar (){
-//     return (
-//     <SideNav className="sidebar">
-//     <SideNav.Toggle />
-//     <SideNav.Nav defaultSelected="home" className="sidebar">
-//         <NavItem eventKey="home">
-//             <NavIcon>
-//                 <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
-//             </NavIcon>
-//             <NavText>
-//                 Home
-//             </NavText>
-//         </NavItem>
-//         <NavItem eventKey="charts">
-//             <NavIcon>
-//                 <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
-//             </NavIcon>
-//             <NavText>
-//                 Charts
-//             </NavText>
-//         </NavItem>
-//     </SideNav.Nav>
-// </SideNav>
-//     )
-// }
+const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-// export default Navbar;
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+      <div className="menu-toggle" onClick={toggleSidebar}>
+        {isOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
+      </div>
+      <div className="menu-items">
+        <Link to="/developersList" onClick={toggleSidebar}>Developers List</Link>
+        <Link to="/add-developers" onClick={toggleSidebar}>Add Developer</Link>
+        <Link to="/developerDetails" onClick={toggleSidebar}>Delete Developer</Link>
+        <Link to="/my-reservations" onClick={toggleSidebar}>My Reservations</Link>
+        <Link to="/add-reservation" onClick={toggleSidebar}>Add Reservation</Link>
+        <Link to="/logout" onClick={toggleSidebar}>Logout</Link>
+      </div>
+      <div className="social-icons">
+        <FaFacebook />
+        <FaTwitter />
+        <FaInstagram />
+        <FaLinkedin />
+      </div>
+    </div>
+  );
+};
+
+export default Sidebar;
