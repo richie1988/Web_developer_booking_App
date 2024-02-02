@@ -15,6 +15,9 @@
 }
 
 /* Rest of your existing styles remain unchanged */
-
-
-
+.container-landing-page {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  min-height: 100vh;
+  gap: 16rem;
+}
