@@ -89,11 +89,6 @@ function Navbar() {
                 <FaPinterestP />
               </NavLink>
             </li>
-            <li>
-              <NavLink to="#" className="logo-link" onClick={toggleSidebar}>
-                <FaTwitter />
-              </NavLink>
-            </li>
           </ul>
           <p className="copyright">
             <span><AiOutlineCopyrightCircle /></span>
