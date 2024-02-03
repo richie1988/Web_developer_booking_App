@@ -21,4 +21,45 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_29_150929) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  create_table "web_developers", force: :cascade do |t|
+    t.string "name"
+    t.string "title"
+    t.text "description"
+    t.integer "hourly_rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_url"
+    t.string "linkedin_url"
+    t.string "twitter_url"
+    t.string "github_url"
+    t.string "email"
+    t.string "phone"
+    t.string "city"
+  end
+
+  create_table "webdeveloper_skills", force: :cascade do |t|
+    t.integer "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "web_developer_id", null: false
+    t.bigint "skill_id", null: false
+    t.index ["skill_id"], name: "index_webdeveloper_skills_on_skill_id"
+    t.index ["web_developer_id"], name: "index_webdeveloper_skills_on_web_developer_id"
+  end
+
+  add_foreign_key "webdeveloper_skills", "skills"
+  add_foreign_key "webdeveloper_skills", "web_developers"
 end

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     post 'login' => 'users#login'
     post 'register' => 'users#register'
     put 'update-account' => 'users#update'
+    resources :skills
+    resources :web_developers
+    resources :web_developer_skills
   end
 
   root 'root#index'
