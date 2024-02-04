@@ -4,6 +4,101 @@ info:
   title: API V1
   version: v1
 paths:
+  "/api/reservations":
+    get:
+      summary: list reservations
+      tags:
+      - reservations
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+  "/api/new-reservation":
+    post:
+      summary: create reservation
+      tags:
+      - reservations
+      security:
+      - Bearer: {}
+      parameters: []
+      responses:
+        '200':
+          description: Reservation created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation:
+                  type: object
+                  properties:
+                    city:
+                      type: string
+                    reservation_date:
+                      type: string
+                    web_developer_id:
+                      type: integer
+                  required:
+                  - city
+                  - reservation_date
+                  - web_developer_id
+              required: reservation
+  "/api/reservation/update":
+    put:
+      summary: update reservation
+      tags:
+      - reservations
+      security:
+      - Bearer: {}
+      parameters: []
+      responses:
+        '200':
+          description: Reservation updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation_id:
+                  type: integer
+                reservation:
+                  type: object
+                  properties:
+                    city:
+                      type: string
+                    reservation_date:
+                      type: string
+                    web_developer_id:
+                      type: integer
+                  required:
+                  - city
+                  - reservation_date
+                  - web_developer_id
+              required: reservation_id reservation
+  "/api/reservation/delete":
+    delete:
+      summary: delete reservation
+      tags:
+      - reservations
+      security:
+      - Bearer: {}
+      parameters: []
+      responses:
+        '200':
+          description: Reservation deleted
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation_id:
+                  type: integer
+              required:
+              - reservation_id
   "/api/skills":
     get:
       summary: list skills
