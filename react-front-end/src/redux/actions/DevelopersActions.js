@@ -10,6 +10,15 @@ export const fetchDevelopers = () => async (dispatch) => {
   }
 };
 
+export const getDeveloper = (id) => async (dispatch) => {
+  try {
+    const response = await axios.get(`http://localhost:5000/api/developers/${id}`);
+    dispatch({ type: 'GET_DEVELOPER', payload: response.data });
+  } catch (error) {
+    console.error('Error fetching developer:', error.message);
+  }
+};
+
 export const addDeveloper = (developer) => async (dispatch) => {
   try {
     const response = await axios.post('http://localhost:5000/api/developers', developer);
