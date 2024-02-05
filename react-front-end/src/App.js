@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import WelcomePage from './components/WelcomePage';
-import DeveloperList from './components/DeveloperList';
+import Developers from './components/DeveloperListCard';
 import DeveloperDetails from './components/DeveloperDetails';
 import ReservationForm from './components/ReservationForm';
 import MyReservations from './components/MyReservations';
@@ -12,16 +12,16 @@ import DeleteDeveloperList from './components/DeleteDeveloperList';
 import HomePage from './components/HomePage';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import Navbar from './components/NavBar/Navbar';
+import Navbar from './components/NavbarDemo';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
-          {/* <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/" element={<WelcomePage />} /> */}
+          <Route path="/" element={<WelcomePage />} />
           <Route
             path="/*"
             element={
@@ -30,7 +30,7 @@ function App() {
                 <div className="content-container">
                   <Routes>
                     <Route index element={<HomePage />} />
-                    <Route path="/developersList" element={<DeveloperList />} />
+                    <Route path="/developers" element={<Developers />} />
                     <Route path="/add-developers" element={<AddDeveloperForm />} />
                     <Route
                       path="/delete-developer/:id"
