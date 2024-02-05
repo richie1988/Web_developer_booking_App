@@ -9,6 +9,15 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.0",
+    "react-router-dom": "^6.21.2",
+    "strip-ansi": "^3.0.1",
+    "webpack": "4.46.0",
+    "webpack-cli": "3.3.12",
+    "yargs-parser": "^21.1.1"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.config.js --open",
+    "build": "webpack --config webpack.config.js",
     "react-router-dom": "^6.21.3",
     "redux-thunk": "^3.1.0",
     "sass": "^1.70.0",
