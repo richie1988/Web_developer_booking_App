@@ -2,7 +2,6 @@ class Api::SkillsController < ApplicationController
   include JsonWebToken
   before_action :authenticate_api_user!
 
-
   def index
     skills = Skill.all
     render json: skills, status: :ok
