@@ -12,7 +12,8 @@ import DeleteDeveloperList from './components/DeleteDeveloperList';
 import HomePage from './components/HomePage';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import Navbar from './components/NavbarDemo';
+import Navbar from './components/NavBar';
+
 
 function App() {
   return (
