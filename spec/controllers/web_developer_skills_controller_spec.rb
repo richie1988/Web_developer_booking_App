@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 require 'jwt'
 
@@ -24,7 +23,14 @@ RSpec.describe Api::WebDeveloperSkillsController, type: :controller do
   end
 
   describe 'GET #show' do
-    let(:developer_skill) { WebdeveloperSkill.create(level: 1, web_developer_id: 1, skill_id: 1) }
+    let(:testingskill) { Skill.create(name: 'Python') }
+    let(:testingwebdeveloper) do
+      WebDeveloper.create(name: 'John Doe', title: 'Full Stack Developer', description: 'a web developer',
+                          image_url: 'https://example.com/image.jpg', hourly_rate: 80)
+    end
+    let(:developer_skill) do
+      WebdeveloperSkill.create(level: 1, web_developer_id: testingwebdeveloper.id, skill_id: testingskill.id)
+    end
 
     it 'returns a specific web developer skill' do
       get :show, params: { id: developer_skill.id }
@@ -33,13 +39,18 @@ RSpec.describe Api::WebDeveloperSkillsController, type: :controller do
   end
 
   describe 'POST #create' do
+    let(:testingskill) { Skill.create(name: 'Python') }
+    let(:testingwebdeveloper) do
+      WebDeveloper.create(name: 'John Doe', title: 'Full Stack Developer', description: 'a web developer',
+                          image_url: 'https://example.com/image.jpg', hourly_rate: 80)
+    end
     context 'with valid params' do
       let(:valid_params) do
         {
           webdeveloper_skill: {
             level: 2,
-            web_developer_id: 2,
-            skill_id: 2
+            web_developer_id: testingwebdeveloper.id,
+            skill_id: testingskill.id
           }
         }
       end
@@ -69,7 +80,14 @@ RSpec.describe Api::WebDeveloperSkillsController, type: :controller do
   end
 
   describe 'PUT #update' do
-    let(:developer_skill) { WebdeveloperSkill.create(level: 3, web_developer_id: 3, skill_id: 3) }
+    let(:testingskill) { Skill.create(name: 'Python') }
+    let(:testingwebdeveloper) do
+      WebDeveloper.create(name: 'John Doe', title: 'Full Stack Developer', description: 'a web developer',
+                          image_url: 'https://example.com/image.jpg', hourly_rate: 80)
+    end
+    let(:developer_skill) do
+      WebdeveloperSkill.create(level: 3, web_developer_id: testingwebdeveloper.id, skill_id: testingskill.id)
+    end
 
     context 'with valid params' do
       let(:valid_params) do
@@ -77,8 +95,8 @@ RSpec.describe Api::WebDeveloperSkillsController, type: :controller do
           id: developer_skill.id,
           webdeveloper_skill: {
             level: 4,
-            web_developer_id: 4,
-            skill_id: 4
+            web_developer_id: testingwebdeveloper.id,
+            skill_id: testingskill.id
           }
         }
       end
@@ -109,7 +127,14 @@ RSpec.describe Api::WebDeveloperSkillsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    let(:developer_skill) { WebdeveloperSkill.create(level: 5, web_developer_id: 5, skill_id: 5) }
+    let(:testingskill) { Skill.create(name: 'PHP') }
+    let(:testingwebdeveloper) do
+      WebDeveloper.create(name: 'Savoda', title: 'Full Stack Developer', description: 'a web developer',
+                          image_url: 'https://example.com/image.jpg', hourly_rate: 80)
+    end
+    let(:developer_skill) do
+      WebdeveloperSkill.create(level: 5, web_developer_id: testingwebdeveloper.id, skill_id: testingskill.id)
+    end
 
     it 'deletes an existing web developer skill' do
       delete :destroy, params: { id: developer_skill.id }

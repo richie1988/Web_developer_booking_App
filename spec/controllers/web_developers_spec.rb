@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 require 'jwt'
 
@@ -23,7 +22,10 @@ RSpec.describe Api::WebDevelopersController, type: :controller do
   end
 
   describe 'GET #show' do
-    let(:developer) { WebDeveloper.create(name: 'John Doe', title: 'Full Stack Developer',description:"a web developer",image_url:"https://example.com/image.jpg",hourly_rate:80) }
+    let(:developer) do
+      WebDeveloper.create(name: 'John Doe', title: 'Full Stack Developer', description: 'a web developer',
+                          image_url: 'https://example.com/image.jpg', hourly_rate: 80)
+    end
 
     it 'returns a specific web developer' do
       get :show, params: { id: developer.id }
@@ -40,8 +42,8 @@ RSpec.describe Api::WebDevelopersController, type: :controller do
             title: 'Frontend Developer',
             description: 'Passionate about web development.',
             hourly_rate: 50,
-            image_url: 'https://example.com/image.jpg',
-            
+            image_url: 'https://example.com/image.jpg'
+
           }
         }
       end
@@ -60,8 +62,8 @@ RSpec.describe Api::WebDevelopersController, type: :controller do
             title: 'Backend Developer',
             description: 'Experienced in backend technologies.',
             hourly_rate: 60,
-            image_url: 'https://example.com/image.jpg',
-            
+            image_url: 'https://example.com/image.jpg'
+
           }
         }
       end
@@ -74,7 +76,7 @@ RSpec.describe Api::WebDevelopersController, type: :controller do
   end
 
   describe 'PUT #update' do
-    let(:developer) { WebDeveloper.create(name: 'Sam Smith', title: 'UI/UX Designer',image_url:"https://example.com/image.jpg",hourly_rate:35,description:"A passionate designer") }
+    let(:developer) { WebDeveloper.create(name: 'Sam Smith', title: 'UI/UX Designer', image_url: 'https://example.com/image.jpg', hourly_rate: 35, description: 'A passionate designer') }
 
     context 'with valid params' do
       let(:valid_params) do
@@ -82,7 +84,7 @@ RSpec.describe Api::WebDevelopersController, type: :controller do
           id: developer.id,
           web_developer: {
             name: 'Michael Scofield',
-            title: 'Designer',
+            title: 'Designer'
           }
         }
       end
@@ -98,8 +100,8 @@ RSpec.describe Api::WebDevelopersController, type: :controller do
         {
           id: developer.id,
           web_developer: {
-            name: nil, 
-            title: 'Frontend developer',
+            name: nil,
+            title: 'Frontend developer'
           }
         }
       end
@@ -112,7 +114,7 @@ RSpec.describe Api::WebDevelopersController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    let(:developer) { WebDeveloper.create(name: 'Alex Turner', title: 'Software Engineer',image_url:"https://example.com/image.jpg",hourly_rate:35,description:"A passionate designer") }
+    let(:developer) { WebDeveloper.create(name: 'Alex Turner', title: 'Software Engineer', image_url: 'https://example.com/image.jpg', hourly_rate: 35, description: 'A passionate designer') }
 
     it 'deletes an existing web developer' do
       delete :destroy, params: { id: developer.id }

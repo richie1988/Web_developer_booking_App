@@ -1,7 +1,6 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/skills', type: :request do
-  
   path '/api/skills' do
     get('list skills') do
       tags 'Skills'
