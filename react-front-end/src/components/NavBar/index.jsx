@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import logoImage from '../../images/logo.jpg';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,9 @@ const Sidebar = () => {
 
   return (
     <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+      <div>
+      <img className="logo-img" src={logoImage} alt="logo" />
+      </div>
       <div className="menu-toggle" onClick={toggleSidebar}>
         {isOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
       </div>
