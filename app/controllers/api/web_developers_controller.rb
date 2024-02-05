@@ -3,12 +3,12 @@ class Api::WebDevelopersController < ApplicationController
   before_action :authenticate_api_user!
 
   def index
-    developers = WebDeveloper.includes(:webdeveloper_skills, :skills).all
+    developers = WebDeveloper.includes(webdeveloper_skills: :skill).all
     render json: developers, status: :ok
   end
 
   def show
-    developer = WebDeveloper.includes(:webdeveloper_skills, :skills).find(params[:id])
+    developer = WebDeveloper.includes(webdeveloper_skills: :skill).find(params[:id])
     render json: developer, status: :ok
   end
 
