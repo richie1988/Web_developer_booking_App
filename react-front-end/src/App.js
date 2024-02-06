@@ -12,7 +12,7 @@ import DeleteDeveloperList from './components/DeleteDeveloperList';
 import HomePage from './components/HomePage';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import Navbar from './components/NavBar';
+import Navbar from './components/Navbar/Navbar';
 
 
 function App() {

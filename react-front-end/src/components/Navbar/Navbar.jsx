@@ -5,7 +5,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import logoImage from '../../images/logo.jpg';
 
-const Navbar = () => {
+const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -38,4 +38,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Sidebar;

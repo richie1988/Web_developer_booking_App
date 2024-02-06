@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addReservation } from '../../redux/actions/ReservationsActions';
+import { addReservation } from '../../redux/actions/myReservationActions';
+// import { createReservation } from '../../redux/actions/reservationActions';
 
 function ReservationForm() {
   const dispatch = useDispatch();
