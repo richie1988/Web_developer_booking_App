@@ -55,3 +55,4 @@ gem 'jwt'
 gem 'webpacker'
 
 gem 'rack-cors', require: 'rack/cors'
+

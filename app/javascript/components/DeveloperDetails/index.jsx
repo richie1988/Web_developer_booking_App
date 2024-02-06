@@ -1,7 +1,7 @@
 // src/components/DeveloperDetail.js
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import DeveloperCard from '../DeveloperCard';
+import DeveloperCard from '../DeveloperCard/index.jsx';
 import axios from 'axios';
 
 const DeveloperDetail = () => {
