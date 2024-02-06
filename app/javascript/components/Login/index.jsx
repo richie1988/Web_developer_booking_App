@@ -22,7 +22,7 @@ function Login() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ user: { username } }),
+      body: JSON.stringify({ username }),
     })
       .then((response) => {
         console.log(response);
