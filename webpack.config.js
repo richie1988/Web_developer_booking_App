@@ -1,3 +1,4 @@
+
 const path = require('path');
 const webpack = require('webpack');
 
@@ -10,32 +11,23 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
-        },
+        use: ['babel-loader'],
       },
       {
-        test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ],
+        test: /\.(jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
       },
       {
-        test: /\.mjs$/,
-        include: /node_modules/,
-        type: "javascript/auto",
-        use: [
-          'style-loader',
-          'css-loader'
-        ],
+          test: /\.css$/,
+          use: ["style-loader", "css-loader"]
       },
+      {
+          test: /\.(png|jpg)$/,
+          loader: 'url-loader'
+      }
     ],
   },
   output: {
@@ -43,10 +35,9 @@ module.exports = {
     sourceMapFilename: '[name].js.map',
     path: path.resolve(__dirname, 'app/assets/builds'),
   },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-    alias: {
-      'react-toastify': 'react-toastify/dist/react-toastify.cjs.js',
-    },
-  },
+  plugins: [
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1,
+    }),
+  ],
 };
