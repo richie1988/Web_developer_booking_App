@@ -10,7 +10,7 @@ export const FETCH_RESERVATIONS_FAILURE = 'FETCH_RESERVATIONS_FAILURE';
 export const createReservation = (reservationData) => async (dispatch) => {
   try {
     const response = await axios.post(
-      'http://localhost:3000/api/v1/reservations', // Amend as required
+      'http://localhost:3000/api/reservations', // Amend as required
       { reservation: reservationData },
       {
         headers: {
@@ -52,7 +52,7 @@ export const setSelectedDuration = (duration) => ({
 
 export const fetchReservations = () => async (dispatch) => {
   try {
-    const response = await axios.get('http://localhost:3000/api/v1/reservations');
+    const response = await axios.get('http://localhost:3000/api/reservations');
     dispatch({
       type: FETCH_RESERVATIONS_SUCCESS,
       payload: response.data,
