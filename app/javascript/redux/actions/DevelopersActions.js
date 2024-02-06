@@ -1,9 +1,15 @@
 // DevelopersActions.js
 import axios from 'axios';
-// Web Developers Actions
+import baseRequest from '../../http-common'
+
 export const fetchWebDevelopers = () => async (dispatch) => {
+  const headers = {
+    'Authorization': 'Bearer '+localStorage.getItem('token')
+  }
   try {
-    const response = await axios.get('http://localhost:3000/api/web_developers');
+    const response = await baseRequest.get('/web_developers', {
+      headers: headers
+    });
     dispatch({ type: 'FETCH_WEB_DEVELOPERS', payload: response.data });
   } catch (error) {
     console.error('Error fetching web developers:', error.message);
@@ -19,8 +25,13 @@ export const fetchDeveloper = (id) => async (dispatch) => {
 };
 
 export const addWebDeveloper = (developerData) => async (dispatch) => {
+  const headers = {
+    'Authorization': 'Bearer '+localStorage.getItem('token')
+  }
   try {
-    const response = await axios.post('http://localhost:3000/api/web_developers', developerData);
+    const response = await baseRequest.post('/web_developers', developerData, {
+      headers: headers
+    });
     dispatch({ type: 'ADD_WEB_DEVELOPER', payload: response.data });
   } catch (error) {
     console.error('Error adding web developer:', error.message);

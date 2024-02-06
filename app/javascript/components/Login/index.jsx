@@ -25,6 +25,9 @@ function Login() {
       body: JSON.stringify({ user: { username } }),
     })
       .then((response) => {
+        console.log(response);
+        let token = response.token;
+        localStorage.setItem('token', token);
         if (response.ok) {
           return response.json();
         } else {
