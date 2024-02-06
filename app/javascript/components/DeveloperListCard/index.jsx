@@ -1,10 +1,10 @@
 // DeveloperCardList.jsx
 import React, { useState, useEffect } from 'react';
 import { Carousel } from 'react-bootstrap';
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 import developerImage from '../../images/developer.jpg';
 import '../../styles/developersList.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+//import '@fortawesome/fontawesome-free/css/all.min.css';
 import axios from 'axios';
 
 function DeveloperCardList() {

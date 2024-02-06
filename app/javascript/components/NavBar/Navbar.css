@@ -1,13 +1,10 @@
-/* stylelint-disable color-function-notation */
-/* stylelint-disable comment-empty-line-before */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Noto+Sans+Display:wght@400;700&family=Poppins&display=swap');
-/* stylelint-disable alpha-value-notation */
 
 .nav-container {
   width: 130%;
   height: 100vh;
   max-height: 100vh;
-  border-right: 3px solid rgba(124, 122, 122, 0.3);
+  border-right: 3px solid rgba(139, 137, 137, 0.3);
   font-family: 'IBM Plex Sans', sans-serif;
   position: relative;
 }
@@ -73,7 +70,6 @@
 .sidenav-item:hover a {
   color: white;
 }
-
 
 .sidenav-item.active {
   background-color: rgb(116, 189, 8);
