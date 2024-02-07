@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background: url('../images/webpage2.jpg') center/cover no-repeat;
 }
 
 .welcome-title {
@@ -17,16 +18,30 @@
   gap: 1rem;
 }
 
+.button-container li {
+  list-style: none;
+  padding: 5px;
+}
+.button-container a {
+  width: 120px;
+  border: none;
+  box-shadow: 8px 10px 10px 8px  orangered;
+  text-decoration: none;
+  font-size: 22px;
+}
+
 .signup-button, .signin-button {
-  background-color: blue;
+  background-color: rgb(19, 96, 211);
   color: white;
   padding: 0.5rem 1rem;
-  border-radius: 50px;
+  border-radius: 50%;
   transition: background-color 0.3s ease;
+  text-align: center;
+  width: 100%;
 }
 
 .signup-button:hover, .signin-button:hover {
-  background-color: darkblue;
+  background-color: rgb(57, 57, 56);
 }
 
 /* Desktop styles */
@@ -36,6 +51,6 @@
   }
 
   .signup-button, .signin-button {
-    padding: 1rem 2rem;
+    padding: 1rem 3rem;
   }
 }

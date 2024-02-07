@@ -1,18 +1,22 @@
-// AddDeveloper.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addWebDeveloper } from '../../redux/actions/DevelopersActions';
+import '../../styles/forms.css';
 
 function AddDeveloper() {
   const dispatch = useDispatch();
   const [developer, setDeveloper] = useState({
-    fullName: '',
-    phoneNumber: '',
-    hourlyRate: '',
+    name: '',
+    title: '',
+    description: '',
+    hourly_rate: '',
+    image_url: '',
     city: '',
     email: '',
-    skills: [],
-    profileImage: null,
+    phone: '',
+    linkedin_url: '',
+    twitter_url: '',
+    github_url: ''
   });
 
   const handleInputChange = (e) => {
@@ -27,95 +31,60 @@ function AddDeveloper() {
 
   const handleAddDeveloper = (e) => {
     e.preventDefault();
-    dispatch(addWebDeveloper(developer));
-  };
 
-  const handleAddSkill = () => {
-    setDeveloper({ ...developer, skills: [...developer.skills, ''] });
-  };
-
-  const handleRemoveSkill = (index) => {
-    const updatedSkills = [...developer.skills];
-    updatedSkills.splice(index, 1);
-    setDeveloper({ ...developer, skills: updatedSkills });
-  };
-
-  const handleSkillInputChange = (index, value) => {
-    const updatedSkills = [...developer.skills];
-    updatedSkills[index] = value;
-    setDeveloper({ ...developer, skills: updatedSkills });
+    const updatedDeveloper = { ...developer, hourly_rate: parseFloat(developer.hourly_rate) };
+    // Dispatch action to add developer with the modified developer object
+    dispatch(addWebDeveloper(updatedDeveloper));
   };
 
   return (
     <div className="container">
-      <h1>Add Developer Page</h1>
+      <h1 className="adddeveloper-h1">Add Developer Page</h1>
       <form onSubmit={handleAddDeveloper} className="row g-3">
-        {/* Input fields for developer information */}
-
         <div className="col-md-6">
-        <label htmlFor="fullName" className="form-label">Full Name</label>
-        <input type="text" className="form-control" id="fullName" name="fullName" value={developer.fullName} onChange={handleInputChange} />
-      </div>
-      <div className="col-md-6">
-        <label htmlFor="phoneNumber" className="form-label">Phone Number</label>
-        <input type="text" className="form-control" id="phoneNumber" name="phoneNumber" value={developer.phoneNumber} onChange={handleInputChange} />
-      </div>
-      <div className="col-md-6">
-        <label htmlFor="hourlyRate" className="form-label">Hourly Rate</label>
-        <input type="text" className="form-control" id="hourlyRate" name="hourlyRate" value={developer.hourlyRate} onChange={handleInputChange} />
-      </div>
-      <div className="col-md-6">
-        <label htmlFor="city" className="form-label">City</label>
-        <input type="text" className="form-control" id="city" name="city" value={developer.city} onChange={handleInputChange} />
-      </div>
-      <div className="col-md-6">
-        <label htmlFor="email" className="form-label">Email</label>
-        <input type="email" className="form-control" id="email" name="email" value={developer.email} onChange={handleInputChange} />
-      </div>
-      <div className="col-6">
-        <label htmlFor="profileImage" className="form-label">Profile Image</label>
-        <input type="file" className="form-control" id="profileImage" name="profileImage" onChange={handleInputChange} />
-      </div>
-        {/* ... */}
-
-        <div className="col-6">
-          <label htmlFor="skills" className="form-label">
-            Skills
-          </label>
-          <div className="d-flex align-items-start">
-            <button
-              type="button"
-              className="btn btn-success me-3"
-              onClick={handleAddSkill}
-            >
-              Add Skill
-            </button>
-            <div>
-              {(developer.skills.length > 0 ? developer.skills : ['']).map(
-                (skill, index) => (
-                  <div key={index} className="input-group mb-3">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Enter skill"
-                      value={skill}
-                      onChange={(e) =>
-                        handleSkillInputChange(index, e.target.value)
-                      }
-                    />
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger"
-                      onClick={() => handleRemoveSkill(index)}
-                    >
-                      Remove
-                    </button>
-                  </div>
-                )
-              )}
-            </div>
-          </div>
+          <label htmlFor="name" className="form-label">Full Name</label>
+          <input type="text" className="form-control" id="name" name="name" value={developer.name} onChange={handleInputChange} />
         </div>
+        <div className="col-md-6">
+          <label htmlFor="title" className="form-label">Title</label>
+          <input type="text" className="form-control" id="title" name="title" value={developer.title} onChange={handleInputChange} />
+        </div>
+        <div className="col-12">
+          <label htmlFor="description" className="form-label">Description</label>
+          <textarea className="form-control" id="description" name="description" value={developer.description} onChange={handleInputChange}></textarea>
+        </div>
+        <div className="col-md-6">
+          <label htmlFor="hourly_rate" className="form-label">Hourly Rate</label>
+          <input type="text" className="form-control" id="hourly_rate" name="hourly_rate" value={developer.hourly_rate} onChange={handleInputChange} />
+        </div>
+        <div className="col-md-6">
+          <label htmlFor="city" className="form-label">City</label>
+          <input type="text" className="form-control" id="city" name="city" value={developer.city} onChange={handleInputChange} />
+        </div>
+        <div className="col-md-6">
+          <label htmlFor="email" className="form-label">Email</label>
+          <input type="email" className="form-control" id="email" name="email" value={developer.email} onChange={handleInputChange} />
+        </div>
+        <div className="col-md-6">
+          <label htmlFor="phone" className="form-label">Phone</label>
+          <input type="tel" className="form-control" id="phone" name="phone" value={developer.phone} onChange={handleInputChange} />
+        </div>
+        <div className="col-md-6">
+          <label htmlFor="linkedin_url" className="form-label">LinkedIn URL</label>
+          <input type="text" className="form-control" id="linkedin_url" name="linkedin_url" value={developer.linkedin_url} onChange={handleInputChange} />
+        </div>
+        <div className="col-md-6">
+          <label htmlFor="twitter_url" className="form-label">Twitter URL</label>
+          <input type="text" className="form-control" id="twitter_url" name="twitter_url" value={developer.twitter_url} onChange={handleInputChange} />
+        </div>
+        <div className="col-md-6">
+          <label htmlFor="github_url" className="form-label">GitHub URL</label>
+          <input type="text" className="form-control" id="github_url" name="github_url" value={developer.github_url} onChange={handleInputChange} />
+        </div>
+        <div className="col-6">
+        <label htmlFor="image_url" className="form-label">Profile Image URL</label>
+        <input type="text" className="form-control" id="image_url" name="image_url" value={developer.image_url} onChange={handleInputChange} />
+      </div>
         <div className="col-12">
           <button type="submit" className="btn btn-primary">
             Add Developer
@@ -124,6 +93,7 @@ function AddDeveloper() {
       </form>
     </div>
   );
+  
 }
 
 export default AddDeveloper;

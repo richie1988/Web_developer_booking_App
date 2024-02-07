@@ -360,7 +360,11 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+<<<<<<< HEAD
   webpacker
+=======
+  webpacker (~> 5.x)
+>>>>>>> ea291643ac72b0f48ff1016c97143b2394f64718
 
 RUBY VERSION
    ruby 3.2.2p53

@@ -13,12 +13,14 @@ module WebDevelopersBookingApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
+    config.autoload_lib(ignore: %w(assets tasks))
+
     # ... (existing configuration)
 
     # Add the following lines for CORS configuration
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://localhost:3001','http://localhost:3000' # Add other origins as needed
+        origins 'http://localhost:3000' # Add other origins as needed
         resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
       end
     end

@@ -36,7 +36,11 @@ function Login() {
       })
       .then((user) => {
         dispatch(loginSuccess({ user }));
+<<<<<<< HEAD
         navigate('/Homepage');
+=======
+        navigate('/home');
+>>>>>>> ea291643ac72b0f48ff1016c97143b2394f64718
       })
       .catch((error) => {
         dispatch(loginFailure());

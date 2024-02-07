@@ -1,12 +1,10 @@
 // Home.jsx
 import React from 'react';
 import '../../styles/homePage.css';
-// import Logout from '../Logout/index.jsx';
 
 function Home() {
   return (
     <div className="landing-page">
-      {/* <Logout /> */}
       <div className="background-image">
         {/* This is the place for background image */}
       </div>

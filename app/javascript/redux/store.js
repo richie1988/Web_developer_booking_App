@@ -1,15 +1,16 @@
 // store.js
 import { configureStore } from '@reduxjs/toolkit';
-import {thunk }from 'redux-thunk';
-import developersReducer from './reducer/DevelopersReducer';
-import reservationsReducer from './reducer/ReservationsReducer';
-import authenticationReducer from './Auth/AuthSlicer'
+import {thunk} from 'redux-thunk';
+import developersReducer from './actions/DevelopersActions';
+import reservationsReducer from './actions/ReservationsActions';
+import authenticationReducer from './Auth/AuthSlicer';
+import skillsReducer from './Slicers/skillsSlicer';
 
 const rootReducer = {
   developers: developersReducer,
   reservations: reservationsReducer,
-  authentcation: authenticationReducer,
-  // Add other reducers here if needed
+  authentication: authenticationReducer,
+  skills: skillsReducer,
 };
 
 const store = configureStore({

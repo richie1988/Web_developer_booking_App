@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import Logout from '../Logout/index.jsx';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,12 +18,12 @@ const Sidebar = () => {
         {isOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
       </div>
       <div className="menu-items">
-        <Link to="/developersList" onClick={toggleSidebar}>Developers List</Link>
+        <Link to="/developers" onClick={toggleSidebar}>Developers</Link>
         <Link to="/add-developers" onClick={toggleSidebar}>Add Developer</Link>
-        <Link to="/developerDetails" onClick={toggleSidebar}>Delete Developer</Link>
+        <Link to="/delete-developer" onClick={toggleSidebar}>Delete Developer</Link>
         <Link to="/my-reservations" onClick={toggleSidebar}>My Reservations</Link>
         <Link to="/add-reservation" onClick={toggleSidebar}>Add Reservation</Link>
-        <Link to="/logout" onClick={toggleSidebar}>Logout</Link>
+        <Logout />
       </div>
       <div className="social-icons">
         <FaFacebook />

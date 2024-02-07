@@ -1,43 +1,56 @@
 /* Mobile styles */
 .welcome-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url('../images/wedpage-1.jpg') center/cover no-repeat;
+}
+
+.welcome-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.button-container li {
+  list-style: none;
+  padding: 5px;
+}
+.button-container a {
+  width: 120px;
+  border: none;
+  box-shadow: 8px 10px 10px 8px  orangered;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+.signup-button, .signin-button {
+  background-color: rgb(19, 96, 211);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  width: 100%;
+}
+
+.signup-button:hover, .signin-button:hover {
+  background-color: rgb(57, 57, 56);
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
   .welcome-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
   }
-  
-  .button-container {
-    display: flex;
-    gap: 1rem;
-  }
-  
+
   .signup-button, .signin-button {
-    background-color: blue;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    transition: background-color 0.3s ease;
+    padding: 1rem 3rem;
   }
-  
-  .signup-button:hover, .signin-button:hover {
-    background-color: darkblue;
-  }
-  
-  /* Desktop styles */
-  /* stylelint-disable-next-line media-feature-range-notation */
-  @media (min-width: 768px) {
-    .welcome-title {
-      font-size: 2rem;
-    }
-  
-    .signup-button, .signin-button {
-      padding: 1rem 2rem;
-    }
-  }
-  
+}

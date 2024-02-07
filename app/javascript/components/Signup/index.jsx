@@ -32,7 +32,7 @@ const SignUp = () => {
     )      
     .then(response => {
       console.log('Response:', response.data);
-      navigate('/Homepage');
+      navigate('/');
 
       // Reset form fields
       setName('');

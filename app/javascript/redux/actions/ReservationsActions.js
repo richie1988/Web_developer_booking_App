@@ -1,9 +1,9 @@
 // ReservationsActions.js
-import axios from 'axios';
+import axiosInstance from '../../baseURL';
 
 export const fetchReservations = () => async (dispatch) => {
   try {
-    const response = await axios.get('http://localhost:5000/api/reservations');
+    const response = axiosInstance.get('/reservations');
     dispatch({ type: 'FETCH_RESERVATIONS', payload: response.data });
   } catch (error) {
     console.error('Error fetching reservations:', error.message);
@@ -12,7 +12,7 @@ export const fetchReservations = () => async (dispatch) => {
 
 export const addReservation = (reservation) => async (dispatch) => {
   try {
-    const response = await axios.post('http://localhost:5000/api/reservations', reservation);
+    const response = axiosInstance.post('/reservations', reservation);
     dispatch({ type: 'ADD_RESERVATION', payload: response.data });
   } catch (error) {
     console.error('Error adding reservation:', error.message);
@@ -21,7 +21,7 @@ export const addReservation = (reservation) => async (dispatch) => {
 
 export const deleteReservation = (id) => async (dispatch) => {
   try {
-    await axios.delete(`http://localhost:5000/api/reservations/${id}`);
+    axiosInstance.delete(`/reservations/${id}`);
     dispatch({ type: 'DELETE_RESERVATION', payload: id });
   } catch (error) {
     console.error('Error deleting reservation:', error.message);

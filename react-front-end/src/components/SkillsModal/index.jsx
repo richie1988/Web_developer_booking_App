@@ -1,9 +1,23 @@
-// SkillsModal.js
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addWebDeveloperSkill, fetchSkills } from '../../redux/actions/DevelopersActions';
 
 function SkillsModal({ skills }) {
   const globalPopularityPercentage = 75; // Replace with actual global popularity percentage
   const [editableSkills, setEditableSkills] = useState([]);
+  const [newSkill, setNewSkill] = useState('');
+  const dispatch = useDispatch();
+  const allSkills = useSelector(state => state.skills);
+
+  useEffect(() => {
+    // Initialize editableSkills when the component mounts
+    setEditableSkills(skills.map(skill => ({ name: skill, progress: 10, color: getRandomColor() })));
+  }, [skills]);
+
+  useEffect(() => {
+    // Fetch skills when the component mounts
+    dispatch(fetchSkills());
+  }, [dispatch]);
 
   const getRandomColor = () => {
     // Function to generate random color
@@ -15,11 +29,6 @@ function SkillsModal({ skills }) {
     return color;
   };
 
-  useEffect(() => {
-    // Initialize editableSkills when the component mounts
-    setEditableSkills(skills.map(skill => ({ name: skill, progress: 10, color: getRandomColor() })));
-  }, [skills]);
-
   const handleProgressBarChange = (index, value) => {
     setEditableSkills((prevSkills) => {
       const updatedSkills = [...prevSkills];
@@ -27,7 +36,16 @@ function SkillsModal({ skills }) {
       return updatedSkills;
     });
   };
-  
+
+  const handleAddSkill = () => {
+    const skillToAdd = allSkills.find(skill => skill.name === newSkill);
+    if (skillToAdd) {
+      dispatch(addWebDeveloperSkill({ level: 3, web_developer_id: 1, skill_id: skillToAdd.id }));
+    } else {
+      console.error('Skill not found in the list of all skills.');
+    }
+    setNewSkill('');
+  };
 
   return (
     <div className="modal fade" id="skillsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="skillsModalLabel" aria-hidden="true">
@@ -59,6 +77,16 @@ function SkillsModal({ skills }) {
             ))}
             <div className="mt-3">
               <p>Global Popularity: {globalPopularityPercentage}%</p>
+            </div>
+            <div className="input-group mt-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter skill name"
+                value={newSkill}
+                onChange={(e) => setNewSkill(e.target.value)}
+              />
+              <button className="btn btn-primary" type="button" onClick={handleAddSkill}>Add Skill</button>
             </div>
           </div>
           <div className="modal-footer">

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import axios from 'axios';
+=======
+// ReservationsActions.js
+import axiosInstance from '../../components/baseURL';
+>>>>>>> ea291643ac72b0f48ff1016c97143b2394f64718
 
 export const CREATE_RESERVATION_SUCCESS = 'CREATE_RESERVATION_SUCCESS';
 export const CREATE_RESERVATION_FAILURE = 'CREATE_RESERVATION_FAILURE';
@@ -52,6 +57,7 @@ export const setSelectedDuration = (duration) => ({
 
 export const fetchReservations = () => async (dispatch) => {
   try {
+<<<<<<< HEAD
     const response = await axios.get('http://localhost:3000/api/reservations');
     dispatch({
       type: FETCH_RESERVATIONS_SUCCESS,
@@ -63,5 +69,29 @@ export const fetchReservations = () => async (dispatch) => {
       type: FETCH_RESERVATIONS_FAILURE,
       payload: 'Error fetching reservations.',
     });
+=======
+    const response = axiosInstance.get('/reservations');
+    dispatch({ type: 'FETCH_RESERVATIONS', payload: response.data });
+  } catch (error) {
+    console.error('Error fetching reservations:', error.message);
+  }
+};
+
+export const addReservation = (reservation) => async (dispatch) => {
+  try {
+    const response = axiosInstance.post('/reservations', reservation);
+    dispatch({ type: 'ADD_RESERVATION', payload: response.data });
+  } catch (error) {
+    console.error('Error adding reservation:', error.message);
+  }
+};
+
+export const deleteReservation = (id) => async (dispatch) => {
+  try {
+    axiosInstance.delete(`/reservations/${id}`);
+    dispatch({ type: 'DELETE_RESERVATION', payload: id });
+  } catch (error) {
+    console.error('Error deleting reservation:', error.message);
+>>>>>>> ea291643ac72b0f48ff1016c97143b2394f64718
   }
 };
