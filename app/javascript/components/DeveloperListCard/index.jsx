@@ -1,11 +1,15 @@
 // DeveloperCardList.jsx
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import developerImage from '../../images/developer.jpg';
 import '../../styles/developersList.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import axios from 'axios';
+import { FaGithub } from 'react-icons/fa';
+import { FaTwitter } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 
 function DeveloperCardList() {
   const [developers, setDevelopers] = useState([]);
@@ -47,23 +51,27 @@ function DeveloperCardList() {
           <div className="d-flex justify-content-around colorsel-container">
             {chunk.map((developer, i) => (
               <div key={i} className="developer-list-card" style={{ cursor: "pointer" }}>
-                <a href={`/developerDetails/${developer.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <Link to={`/developerDetails/${developer.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                   <div className="card" style={{ width: "18rem" }}>
-                    <img src={developerImage} alt="developer" />
+                    <img src={developer.image_url} alt="developer" />
                     <div className="card-body">
                       <h2>{developer.name}</h2>
                       <hr className="dotted-line" />
                       <p>{developer.description}</p>
                     </div>
                     <div className="card-body">
-                      {developer.socialMedia.map((social, j) => (
-                        <a key={j} href={social.link} className="card-link">
-                          <i className={`fab ${social.icon}`}></i>
+                        <a href={developer.github_url} className="card-link">
+                          <FaGithub />
                         </a>
-                      ))}
+                        <a href={developer.linkedin_url} className="card-link">
+                          <FaLinkedin />
+                        </a>
+                        <a href={developer.twitter_url} className="card-link">
+                          <FaTwitter />
+                        </a>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             ))}
           </div>

@@ -41,7 +41,7 @@ function App() {
                       path="/delete-developer/:id"
                       element={<DeleteDeveloperList />}
                     />
-                    <Route path="/developerDetails" element={<DeveloperDetails />} />
+                    <Route path="/developerDetails/:id" element={<DeveloperDetails />} />
                     <Route path="/reservationForm" element={<ReservationForm />} />
                     <Route
                       path="/my-reservations"
