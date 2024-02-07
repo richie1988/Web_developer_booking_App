@@ -1,4 +1,6 @@
-class Api::WebDevelopersController < ApplicationController
+class Api::WebDevelopersController < ActionController::API
+  include JsonWebToken
+
   before_action :authenticate_api_user!
 
   def index

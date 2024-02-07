@@ -1,4 +1,6 @@
-class Api::SkillsController < ApplicationController
+class Api::SkillsController < ActionController::API
+  include JsonWebToken
+
   before_action :authenticate_api_user!
 
   def index
@@ -15,7 +17,7 @@ class Api::SkillsController < ApplicationController
     skill = Skill.new(skill_params)
 
     if skill.save
-      render json: skill, status: :created
+      render json: skill, status: :ok
     else
       render json: { error: skill.errors.full_messages }, status: :bad_request
     end

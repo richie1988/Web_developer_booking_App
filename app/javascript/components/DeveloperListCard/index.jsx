@@ -13,9 +13,12 @@ function DeveloperCardList() {
   useEffect(() => {
     // Fetch developers from your API
     const fetchDevelopers = async () => {
+      const headers = {
+        'Authorization': 'Bearer '+localStorage.getItem('token')
+      }
       try {
         console.log('Fetching developers...');
-        const response = await axios.get('/api/web_developers');
+        const response = await axios.get('/api/web_developers', {headers: headers});
         setDevelopers(response.data);
         console.log('Developers fetched successfully:', response.data);
       } catch (error) {
