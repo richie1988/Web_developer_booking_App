@@ -17,9 +17,7 @@ const SignUp = () => {
     }
 
     const dataToSend = {
-      user: {
-        name,
-      },
+      username: name,
     };
 
     axios.post(
