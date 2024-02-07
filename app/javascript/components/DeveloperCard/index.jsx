@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 import developerImage from '../../images/developer.jpg';
 import '../../styles/developersDetails.css';
-//import '@fortawesome/fontawesome-free/css/all.min.css';
-import SkillsModal from '../SkillsModal/index.jsx';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import SkillsModal from '../SkillsModal';
 
 function DeveloperCard({ match }) {
   const dispatch = useDispatch();

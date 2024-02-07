@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDeveloper } from '../../redux/actions/DevelopersActions';
 import { Link } from 'react-router-dom';
-
-
 import developerImage from '../../images/developer.jpg';
 import '../../styles/developersDetails.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';

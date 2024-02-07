@@ -9,19 +9,16 @@ function Logout () {
     const navigate = useNavigate();
     const [logoutMessage, setLogoutMessage] = useState('');
 
-    function handleLogout (){
-        dispatch(logout())
-        // Dispatch the logout actions
-        .then(()=> {
+    function handleLogout() {
+        try {
+            dispatch(logout());
             setLogoutMessage('You have been logged out');
-        // Navigate to the home page after successs logout
             navigate('/');
-        })
-        .catch((err)=> {
-            setLogoutMessage('Something went wrong please try again', err)
-        });
-    };
-
+        } catch (err) {
+            setLogoutMessage('Something went wrong please try again');
+        }
+    }
+    
     return (
         <div className= "logout-container">
             <button onClick={handleLogout} className="logout-button">Logout</button>

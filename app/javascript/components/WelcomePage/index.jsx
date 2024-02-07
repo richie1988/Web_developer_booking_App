@@ -8,12 +8,16 @@ const WelcomePage = () => (
       WELCOME TO BOOK A WEB DEVELOPER APP
     </h3>
     <div className="button-container">
+      <li>
       <Link to="/signup" className="signup-button">
         Sign Up
       </Link>
+      </li>
+      <li>
       <Link to="/login" className="signin-button">
         Login
       </Link>
+      </li>
     </div>
   </div>
 );
