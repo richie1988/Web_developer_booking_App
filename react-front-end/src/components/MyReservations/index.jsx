@@ -1,7 +1,7 @@
 // MyReservations.jsx
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchReservations } from '../../redux/actions/ReservationActions';
+import { fetchReservations } from '../../redux/actions/ReservationsActions';
 
 function MyReservations() {
   const dispatch = useDispatch();
