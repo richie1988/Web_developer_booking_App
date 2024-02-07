@@ -52,14 +52,8 @@ gem 'cancancan'
 
 gem 'jwt'
 
-<<<<<<< HEAD
-gem 'webpacker'
-
-gem 'rack-cors', require: 'rack/cors'
-=======
 gem 'rack-cors', require: 'rack/cors'
 
 gem 'webpacker', '~> 5.x'
 
 gem 'bootstrap', '~> 5.1.3'
->>>>>>> ea291643ac72b0f48ff1016c97143b2394f64718
