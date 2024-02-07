@@ -1,6 +1,6 @@
 // SkillsSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axiosInstance from '../../components/baseURL';
+import axiosInstance from '../../baseURL';
 
 // Async actions
 export const fetchSkills = createAsyncThunk(

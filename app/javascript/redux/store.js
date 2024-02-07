@@ -4,7 +4,7 @@ import {thunk} from 'redux-thunk';
 import developersReducer from './actions/DevelopersActions';
 import reservationsReducer from './actions/ReservationsActions';
 import authenticationReducer from './Auth/AuthSlicer';
-import skillsReducer from './Slicers/SkillsSlice';
+import skillsReducer from './Slicers/skillsSlicer';
 
 const rootReducer = {
   developers: developersReducer,
