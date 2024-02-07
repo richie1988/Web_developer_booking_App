@@ -36,7 +36,7 @@ function Login() {
       })
       .then((user) => {
         dispatch(loginSuccess({ user }));
-        navigate('/Home');
+        navigate('/Homepage');
       })
       .catch((error) => {
         dispatch(loginFailure());
