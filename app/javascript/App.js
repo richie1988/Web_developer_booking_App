@@ -16,7 +16,7 @@ import DeleteDeveloperList from './components/DeleteDeveloperList/index.jsx';
 import HomePage from './components/HomePage/index.jsx';
 import Login from './components/Login/index.jsx';
 import Signup from './components/Signup/index.jsx';
-import Navbar from './components/NavbarDemo/index.jsx';
+import Navbar from './components/Navbar/index.jsx';
 
 function App() {
   return (
