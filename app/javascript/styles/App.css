@@ -6,6 +6,7 @@
   margin-left: 200px;
   padding: 20px; 
   transition: margin-left 0.3s ease;
+  background: url('../images/wedpage-1.jpg') center/cover no-repeat;
 }
 
 @media (max-width: 768px) {

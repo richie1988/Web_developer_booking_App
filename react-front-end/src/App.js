@@ -1,6 +1,6 @@
 // App.jsx
 import React from 'react';
-import './App.css';
+import '../../components/styles/App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import WelcomePage from './components/WelcomePage';
 import Developers from './components/DeveloperListCard';
@@ -29,7 +29,7 @@ function App() {
               <Navbar />
                 <div className="content-container">
                   <Routes>
-                    <Route index element={<HomePage />} />
+                    <Route path="/home" element={<HomePage />} />
                     <Route path="/developers" element={<Developers />} />
                     <Route path="/add-developers" element={<AddDeveloperForm />} />
                     <Route

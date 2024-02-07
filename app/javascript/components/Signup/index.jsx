@@ -17,9 +17,7 @@ const SignUp = () => {
     }
 
     const dataToSend = {
-      user: {
-        name,
-      },
+      username: name,
     };
 
     axios.post(
@@ -34,7 +32,7 @@ const SignUp = () => {
     )      
     .then(response => {
       console.log('Response:', response.data);
-      navigate('/Homepage');
+      navigate('/');
 
       // Reset form fields
       setName('');

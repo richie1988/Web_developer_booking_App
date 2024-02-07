@@ -22,9 +22,12 @@ function Login() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ user: { username } }),
+      body: JSON.stringify({ username }),
     })
       .then((response) => {
+        console.log(response);
+        let token = response.token;
+        localStorage.setItem('token', token);
         if (response.ok) {
           return response.json();
         } else {
@@ -33,7 +36,7 @@ function Login() {
       })
       .then((user) => {
         dispatch(loginSuccess({ user }));
-        navigate('/Home');
+        navigate('/home');
       })
       .catch((error) => {
         dispatch(loginFailure());

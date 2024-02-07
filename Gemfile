@@ -53,3 +53,7 @@ gem 'cancancan'
 gem 'jwt'
 
 gem 'rack-cors', require: 'rack/cors'
+
+gem 'webpacker', '~> 5.x'
+
+gem 'bootstrap', '~> 5.1.3'
