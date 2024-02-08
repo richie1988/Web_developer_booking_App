@@ -14,6 +14,7 @@
     - [Usage](#usage)
     - [Deployment](#deployment)
     - [Kanban Board](#kanban-board)
+    - [Run Tests](#run-tests)
     - [API docs](#api-docs)
   - [👥 Author ](#-author-)
   - [🔭 Future Features ](#-future-features-)
@@ -106,8 +107,9 @@
 - To run the project, execute the following command:
 
 ```sh
-    rails db:create, 
-    rails db:migrate.
+    rails db:create
+    rails db:migrate
+    npm run build
     rails s
 ```
 
@@ -119,6 +121,16 @@
 
 ### Kanban Board
 [Kanban Board](https://github.com/users/patriciachrysy/projects/4/views/1)
+
+### Run Tests
+- To run the tests, execute the following command:
+
+```sh
+    rails db:migrate RAILS_ENV=test
+    rspec spec/models
+    rspec spec/controllers
+```
+- The access the api docs [Here](http://localhost/api-docs) 
 
 ### API docs
 - To run the project, execute the following command:
