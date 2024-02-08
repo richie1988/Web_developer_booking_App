@@ -14,6 +14,7 @@
     - [Usage](#usage)
     - [Deployment](#deployment)
     - [Kanban Board](#kanban-board)
+  - [Kanban Board Group Task  Diagram](#kanban-board-group-task--diagram)
     - [Run Tests](#run-tests)
     - [API docs](#api-docs)
   - [👥 Author ](#-author-)
@@ -121,6 +122,13 @@
 
 ### Kanban Board
 [Kanban Board](https://github.com/users/patriciachrysy/projects/4/views/1)
+
+Here is the screenshot of our original kaban board state
+## Kanban Board Group Task  Diagram
+![kaban-original-state](./initial-kanban.png)
+
+The final number of team members is 4
+
 
 ### Run Tests
 - To run the tests, execute the following command:
