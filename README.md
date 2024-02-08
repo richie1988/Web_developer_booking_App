@@ -4,7 +4,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 The Web Developer Booking App](#-expenses-controller)
+- [📖 The Web Developer Booking App](#-the-web-developer-booking-app)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -13,6 +13,8 @@
     - [Setup](#setup)
     - [Usage](#usage)
     - [Deployment](#deployment)
+    - [Kanban Board](#kanban-board)
+    - [API docs](#api-docs)
   - [👥 Author ](#-author-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -40,6 +42,7 @@
   <summary>Languages</summary>
   <ul>
     <li>Ruby</li>
+    <li>React</li>
     <li>Javascript</li>
   </ul>
 </details>
@@ -114,6 +117,14 @@
 
 ### Kanban Board
 [Kanban Board](https://github.com/users/patriciachrysy/projects/4/views/1)
+
+### API docs
+- To run the project, execute the following command:
+
+```sh
+    rails s
+```
+- The access the api docs [Here](http://localhost/api-docs) 
 
 <!-- AUTHORS -->
 
