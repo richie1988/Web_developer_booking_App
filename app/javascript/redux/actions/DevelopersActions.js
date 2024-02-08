@@ -4,9 +4,6 @@ import baseRequest from '../../http-common'
 import axiosInstance from '../../baseURL';
 
 // Web Developers Actions
-import axiosInstance from '../../baseURL';
-
-// Web Developers Actions
 export const fetchWebDevelopers = () => async (dispatch) => {
   const headers = {
     'Authorization': 'Bearer '+localStorage.getItem('token')

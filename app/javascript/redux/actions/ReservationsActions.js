@@ -1,29 +1,39 @@
-// ReservationsActions.js
-import axiosInstance from '../../baseURL';
+// reservationsActions.js
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import api from '../../baseURL';
 
-export const fetchReservations = () => async (dispatch) => {
-  try {
-    const response = axiosInstance.get('/reservations');
-    dispatch({ type: 'FETCH_RESERVATIONS', payload: response.data });
-  } catch (error) {
-    console.error('Error fetching reservations:', error.message);
+export const fetchReservationsAsync = createAsyncThunk(
+  'reservations/fetchReservations',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await api.get('/api/reservations');
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
-};
+);
 
-export const addReservation = (reservation) => async (dispatch) => {
-  try {
-    const response = axiosInstance.post('/reservations', reservation);
-    dispatch({ type: 'ADD_RESERVATION', payload: response.data });
-  } catch (error) {
-    console.error('Error adding reservation:', error.message);
+export const addReservationAsync = createAsyncThunk(
+  'reservations/addReservation',
+  async (reservationData, { rejectWithValue }) => {
+    try {
+      const response = await api.post('/api/new-reservation', reservationData);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
-};
+);
 
-export const deleteReservation = (id) => async (dispatch) => {
-  try {
-    axiosInstance.delete(`/reservations/${id}`);
-    dispatch({ type: 'DELETE_RESERVATION', payload: id });
-  } catch (error) {
-    console.error('Error deleting reservation:', error.message);
+export const deleteReservationAsync = createAsyncThunk(
+  'reservations/deleteReservation',
+  async (reservationId, { rejectWithValue }) => {
+    try {
+      await api.delete(`/api/reservation/delete/${reservationId}`);
+      return reservationId;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
-};
+);

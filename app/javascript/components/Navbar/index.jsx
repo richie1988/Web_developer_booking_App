@@ -22,7 +22,7 @@ const Sidebar = () => {
         <Link to="/add-developers" onClick={toggleSidebar}>Add Developer</Link>
         <Link to="/delete-developer" onClick={toggleSidebar}>Delete Developer</Link>
         <Link to="/my-reservations" onClick={toggleSidebar}>My Reservations</Link>
-        <Link to="/add-reservation" onClick={toggleSidebar}>Add Reservation</Link>
+        <Link to="/reservationForm" onClick={toggleSidebar}>Add Reservation</Link>
         <Logout />
       </div>
       <div className="social-icons">
