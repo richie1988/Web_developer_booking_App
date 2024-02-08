@@ -1,3 +1,6 @@
+App.js
+
+
 // App.jsx
 import React from 'react';
 import './styles/App.css';
@@ -10,7 +13,7 @@ import WelcomePage from './components/WelcomePage/index.jsx';
 import Developers from './components/DeveloperListCard/index.jsx';
 import DeveloperDetails from './components/DeveloperDetails/index.jsx';
 import ReservationForm from './components/ReservationForm/index.jsx';
-import MyReservations from './components/MyReservations/index.jsx';
+import ReservationList from './components/MyReservations/index.jsx';
 import AddDeveloperForm from './components/AddDeveloperForm/index.jsx';
 import DeleteDeveloperList from './components/DeleteDeveloperList/index.jsx';
 import HomePage from './components/HomePage/index.jsx';
@@ -45,7 +48,7 @@ function App() {
                     <Route path="/reservationForm" element={<ReservationForm />} />
                     <Route
                       path="/my-reservations"
-                      element={<MyReservations />}
+                      element={<ReservationList />}
                     />
                   </Routes>
                 </div>

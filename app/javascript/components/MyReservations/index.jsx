@@ -1,35 +1,35 @@
-// MyReservations.jsx
+MyReservations/index.jsx
+
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchReservations } from '../../redux/actions/ReservationsActions';
+import { fetchReservationsAsync, deleteReservationAsync } from '../../redux/store';
 
-function MyReservations() {
+const ReservationList = () => {
   const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations);
 
   useEffect(() => {
-    dispatch(fetchReservations());
+    dispatch(fetchReservationsAsync());
   }, [dispatch]);
+
+  const handleDelete = (reservationId) => {
+    dispatch(deleteReservationAsync(reservationId));
+  };
 
   return (
     <div>
-      <h1>My Reservations Page</h1>
+      <h2>Reservation List</h2>
       <ul>
-        {Array.isArray(reservations) ? (
-          reservations.map((reservation) => (
-            <li key={reservation.id}>
-              <strong>Developer: {reservation.developerFullName}</strong> 
-              - Date: {reservation.date} 
-              - Duration: {reservation.duration} hours
-              <button>Delete Reservation</button>
-            </li>
-          ))
-        ) : (
-          <li>No reservations to display</li>
-        )}
+        {reservations.map((reservation) => (
+          <li key={reservation.id}>
+            <p>City: {reservation.city}</p>
+            <p>Reservation Date: {reservation.reservation_date}</p>
+            <button onClick={() => handleDelete(reservation.id)}>Delete</button>
+          </li>
+        ))}
       </ul>
     </div>
   );
-}
+};
 
-export default MyReservations;
+export default ReservationList;
