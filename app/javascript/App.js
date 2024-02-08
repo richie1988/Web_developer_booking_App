@@ -22,35 +22,6 @@ function App() {
   return (
     <Provider store={store}>
         <Router>
-<<<<<<< HEAD
-        <div className="App">
-            <Routes>
-            {/*<Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/" element={<WelcomePage />} />*/}
-            <Route
-                path="/*"
-                element={
-                <div>
-                <Navbar />
-                    <div className="content-container">
-                    <Routes>
-                        <Route index element={<HomePage />} />
-                        <Route path="/developers" element={<Developers />} />
-                        <Route path="/add-developers" element={<AddDeveloperForm />} />
-                        <Route
-                        path="/delete-developer/:id"
-                        element={<DeleteDeveloperList />}
-                        />
-                        <Route path="/developerDetails" element={<DeveloperDetails />} />
-                        <Route path="/reservationForm" element={<ReservationForm />} />
-                        <Route
-                        path="/my-reservations"
-                        element={<MyReservations />}
-                        />
-                    </Routes>
-                    </div>
-=======
       <div className="App">
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -70,14 +41,13 @@ function App() {
                       path="/delete-developer/:id"
                       element={<DeleteDeveloperList />}
                     />
-                    <Route path="/developerDetails" element={<DeveloperDetails />} />
+                    <Route path="/developerDetails/:id" element={<DeveloperDetails />} />
                     <Route path="/reservationForm" element={<ReservationForm />} />
                     <Route
                       path="/my-reservations"
                       element={<MyReservations />}
                     />
                   </Routes>
->>>>>>> ea291643ac72b0f48ff1016c97143b2394f64718
                 </div>
               </div>
             }

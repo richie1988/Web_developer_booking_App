@@ -10,10 +10,13 @@ const DeveloperDetail = () => {
   const [developer, setDeveloper] = useState(null);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+  /*useEffect(() => {
+    const headers = {
+      'Authorization': 'Bearer '+localStorage.getItem('token')
+    }
     const fetchDeveloper = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/web_developers/${id}`);
+        const response = await axios.get(`/api/web_developers/${id}`, {headers: headers});
         setDeveloper(response.data);
       } catch (error) {
         console.error('Error fetching developer', error);
@@ -22,7 +25,7 @@ const DeveloperDetail = () => {
     };
 
     fetchDeveloper();
-  }, [id]);
+  }, [id]);*/
 
   const handleDelete = async () => {
     try {
@@ -34,18 +37,19 @@ const DeveloperDetail = () => {
     }
   };
 
-  if (error) {
+  /*if (error) {
     return <div>{error}</div>;
   }
 
   if (!developer) {
-    return <div>Loading... <DeveloperCard /></div>;
-  }
+    return <div>Loading... <DeveloperCard match={id} /></div>;
+  }*/
 
   return (
     <div>
-      <h2>{developer.fullName}</h2>
-      {/* Display other developer information as needed */}
+      {/*<h2>{developer.fullName}</h2>
+       Display other developer information as needed */}
+       <DeveloperCard match={id} />
       <Link to={`/developers/${id}/edit`}>Edit Developer</Link>
       <button onClick={handleDelete}>Delete Developer</button>
     </div>

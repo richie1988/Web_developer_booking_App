@@ -37,14 +37,11 @@
     "yargs-parser": "^21.1.1"
   },
   "devDependencies": {
-<<<<<<< HEAD
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0",
     "stylelint-csstree-validator": "^3.0.0",
     "stylelint-scss": "^6.1.0",
-    "webpack-cli": "^5.1.4"
-  }
-=======
+    "@babel/plugin-proposal-private-methods": "^7.18.6",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "node-polyfill-webpack-plugin": "^3.0.0",
     "webpack": "^5.90.1",
@@ -52,5 +49,4 @@
     "webpack-dev-server": "^4.15.1"
   },
   "license": "LICENSE"
->>>>>>> ea291643ac72b0f48ff1016c97143b2394f64718
-}
+  }

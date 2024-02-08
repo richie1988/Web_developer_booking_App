@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginSuccess, loginFailure } from '../../redux/Auth/AuthSlicer';
 
+import axiosInstance from '../../baseURL';
+
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -17,7 +19,7 @@ function Login() {
       return;
     }
 
-    fetch('http://localhost:3000/api/login', {
+    fetch('/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -25,9 +27,6 @@ function Login() {
       body: JSON.stringify({ username }),
     })
       .then((response) => {
-        console.log(response);
-        let token = response.token;
-        localStorage.setItem('token', token);
         if (response.ok) {
           return response.json();
         } else {
@@ -35,12 +34,11 @@ function Login() {
         }
       })
       .then((user) => {
+        console.log(user);
+        let token = user.token;
+        localStorage.setItem('token', token);
         dispatch(loginSuccess({ user }));
-<<<<<<< HEAD
-        navigate('/Homepage');
-=======
         navigate('/home');
->>>>>>> ea291643ac72b0f48ff1016c97143b2394f64718
       })
       .catch((error) => {
         dispatch(loginFailure());
