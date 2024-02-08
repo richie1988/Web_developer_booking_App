@@ -134,7 +134,7 @@
 👤 **Richard Sikaonga**
 
 - GitHub: [@richie1988](https://github.com/richie1988)
-- LinkedIn: [SamuelWanza](https://www.linkedin.com/in/richard-sikaonga-039940275/)
+- LinkedIn: [Richard Sikaonga](https://www.linkedin.com/in/richard-sikaonga-039940275/)
 
 👤 **Samuel Wanza**
 
