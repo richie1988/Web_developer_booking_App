@@ -89,7 +89,7 @@
 ```sh
   cd [YOUR FOLDER]
   git https://github.com/patriciachrysy/Web-Developers-Booking-App.git
-  cd hello-world
+  cd Web-Developers-Booking-App
   bundle install
   npm install
   code .
@@ -112,6 +112,9 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Kanban Board
+[Kanban Board](https://github.com/users/patriciachrysy/projects/4/views/1)
+
 <!-- AUTHORS -->
 
 ## 👥 Author <a name="authors"></a>
@@ -124,21 +127,20 @@
 
 👤 **Abu Talha**
 
-- GitHub: [@githubhandle]()
-- Twitter: [@twitterhandle]()
-- LinkedIn: [LinkedIn]()
+- GitHub: [@Abutalha](https://github.com/AbuTalha3)
+- Twitter: [@AbuTalha8T](https://twitter.com/https://twitter.com/AbuTalha8T)
+- LinkedIn: [Abu Talha](https://www.linkedin.com/in/abu-talha-najeeb-akhun-393b8b292/)
 
 👤 **Richard Sikaonga**
 
-- GitHub: [@githubhandle]()
-- Twitter: [@twitterhandle]()
-- LinkedIn: [LinkedIn]()
+- GitHub: [@richie1988](https://github.com/richie1988)
+- LinkedIn: [SamuelWanza](https://www.linkedin.com/in/richard-sikaonga-039940275/)
 
 👤 **Samuel Wanza**
 
-- GitHub: [@githubhandle]()
-- Twitter: [@twitterhandle]()
-- LinkedIn: [LinkedIn]()
+- GitHub: [@samuelwanza](https://github.com/Samuelwanza)
+- Twitter: [@samuelmunguti9](https://twitter.com/samuelmunguti9)
+- LinkedIn: [Samuel Wanza](https://www.linkedin.com/in/samuel-munguti/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -175,7 +177,7 @@ If you like this project, kindly drop a start ⭐️ for the [repository](https:
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
- We would like to express our heartfelt gratitude to **Microvere** for the invaluable learning experience they have provided. 
+ We would like to express our heartfelt gratitude to **Microverse** for the invaluable learning experience they have provided. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
