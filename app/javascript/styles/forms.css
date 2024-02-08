@@ -1,0 +1,14 @@
+.adddeveloper-h1 {
+    color: white;
+    }
+    
+    .form-label {
+        font-weight: 600;
+        font-size: bold;
+        color: green;
+      }
+      
+      .form-control {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border: 2px solid grey;
+      }

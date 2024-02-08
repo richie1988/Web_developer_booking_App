@@ -1,0 +1,567 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/reservations":
+    get:
+      summary: list reservations
+      tags:
+      - reservations
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+  "/api/new-reservation":
+    post:
+      summary: create reservation
+      tags:
+      - reservations
+      security:
+      - Bearer: {}
+      parameters: []
+      responses:
+        '200':
+          description: Reservation created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation:
+                  type: object
+                  properties:
+                    city:
+                      type: string
+                    reservation_date:
+                      type: string
+                    web_developer_id:
+                      type: integer
+                  required:
+                  - city
+                  - reservation_date
+                  - web_developer_id
+              required: reservation
+  "/api/reservation/update":
+    put:
+      summary: update reservation
+      tags:
+      - reservations
+      security:
+      - Bearer: {}
+      parameters: []
+      responses:
+        '200':
+          description: Reservation updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation_id:
+                  type: integer
+                reservation:
+                  type: object
+                  properties:
+                    city:
+                      type: string
+                    reservation_date:
+                      type: string
+                    web_developer_id:
+                      type: integer
+                  required:
+                  - city
+                  - reservation_date
+                  - web_developer_id
+              required: reservation_id reservation
+  "/api/reservation/delete":
+    delete:
+      summary: delete reservation
+      tags:
+      - reservations
+      security:
+      - Bearer: {}
+      parameters: []
+      responses:
+        '200':
+          description: Reservation deleted
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reservation_id:
+                  type: integer
+              required:
+              - reservation_id
+  "/api/skills":
+    get:
+      summary: list skills
+      tags:
+      - Skills
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create skill
+      tags:
+      - Skills
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+  "/api/skills/new":
+    get:
+      summary: new skill
+      tags:
+      - Skills
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+  "/api/skills/{id}/edit":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: edit skill
+      tags:
+      - Skills
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+  "/api/skills/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show skill
+      tags:
+      - Skills
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update skill
+      tags:
+      - Skills
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update skill
+      tags:
+      - Skills
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete skill
+      tags:
+      - Skills
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+  "/api/register":
+    post:
+      summary: register user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '200':
+          description: user logged in
+        '400':
+          description: bad request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+  "/api/login":
+    post:
+      summary: login user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '200':
+          description: user logged in
+        '400':
+          description: bad request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+  "/api/update-account":
+    put:
+      summary: update user
+      tags:
+      - Users
+      security:
+      - Bearer: {}
+      parameters: []
+      responses:
+        '200':
+          description: user logged in
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                current_username:
+                  type: string
+                new_username:
+                  type: string
+              required:
+              - current_username
+              - new_username
+  "/api/web_developer_skills":
+    get:
+      summary: List Web Developer Skills
+      tags:
+      - Web Developer Skills
+      description: Retrieve a list of web developer skills
+      responses:
+        '200':
+          description: Successful
+    post:
+      summary: Create Web Developer Skill
+      tags:
+      - Web Developer Skills
+      description: Create a new web developer skill
+      parameters: []
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                level:
+                  type: integer
+                  description: Skill level of the web developer
+                  example: 3
+                web_developer_id:
+                  type: integer
+                  description: ID of the web developer
+                  example: 1
+                skill_id:
+                  type: integer
+                  description: ID of the skill
+                  example: 2
+              required:
+              - level
+              - web_developer_id
+              - skill_id
+  "/api/web_developer_skills/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: ID of the web developer skill
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Show Web Developer Skill
+      tags:
+      - Web Developer Skills
+      description: Retrieve details of a web developer skill by ID
+      responses:
+        '200':
+          description: Successful
+        '404':
+          description: Not Found
+    patch:
+      summary: Update Web Developer Skill
+      tags:
+      - Web Developer Skills
+      description: Update details of a web developer skill by ID
+      parameters: []
+      responses:
+        '200':
+          description: Successful
+        '404':
+          description: Not Found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                level:
+                  type: integer
+                  description: Skill level of the web developer
+                  example: 4
+    delete:
+      summary: Delete Web Developer Skill
+      tags:
+      - Web Developer Skills
+      description: Delete a web developer skill by ID
+      responses:
+        '204':
+          description: No Content
+        '404':
+          description: Not Found
+  "/api/web_developers":
+    get:
+      summary: list web_developers
+      tags:
+      - Web Developers
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create web_developer
+      tags:
+      - Web Developers
+      security:
+      - Bearer: {}
+      parameters: []
+      responses:
+        '200':
+          description: successful
+        '400':
+          description: bad request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Name of the web developer
+                  example: John Doe
+                title:
+                  type: string
+                  description: Title of the web developer
+                  example: Full Stack Developer
+                description:
+                  type: string
+                  description: Description of the web developer
+                  example: Passionate about web development
+                hourly_rate:
+                  type: integer
+                  description: Hourly rate of the web developer
+                  example: 50
+                image_url:
+                  type: string
+                  format: uri
+                  description: URL of the web developer's image
+                  example: https://example.com/image.jpg
+                city:
+                  type: string
+                  description: city of the developer
+                  example: Abuja
+                email:
+                  type: string
+                  description: email of the developer
+                  example: example@gmail.com
+                phone:
+                  type: string
+                  description: phone number of the developer
+                  example: "+254789034567"
+                linkedin_url:
+                  type: string
+                  description: linkedin url of the developer
+                  example: https://www.linkedin.com/in/james-smart/
+                twitter_url:
+                  type: string
+                  description: twitter url of the developer
+                  example: https://twitter.com/eseosa78
+                github_url:
+                  type: string
+                  description: github url of the developer
+                  example: https://github.com/ahemedoduola
+              required:
+              - name
+              - title
+              - description
+              - hourly_rate
+              - image_url
+  "/api/web_developers/new":
+    get:
+      summary: new web_developer
+      tags:
+      - Web Developers
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+  "/api/web_developers/{id}/edit":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: edit web_developer
+      tags:
+      - Web Developers
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+  "/api/web_developers/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show web_developer
+      tags:
+      - Web Developers
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update web_developer
+      tags:
+      - Web Developers
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update web_developer
+      tags:
+      - Web Developers
+      security:
+      - Bearer: {}
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Name of the web developer
+                  example: John Doe
+                title:
+                  type: string
+                  description: Title of the web developer
+                  example: Full Stack Developer
+                description:
+                  type: string
+                  description: Description of the web developer
+                  example: Passionate about web development
+                hourly_rate:
+                  type: integer
+                  description: Hourly rate of the web developer
+                  example: 60
+                image_url:
+                  type: string
+                  format: uri
+                  description: URL of the web developer's image
+                  example: https://example.com/image.jpg
+                city:
+                  type: string
+                  description: city of the developer
+                  example: Abuja
+                email:
+                  type: string
+                  description: email of the developer
+                  example: example@gmail.com
+                phone:
+                  type: string
+                  description: phone number of the developer
+                  example: "+254789034567"
+                linkedin_url:
+                  type: string
+                  description: linkedin url of the developer
+                  example: https://www.linkedin.com/in/james-smart/
+                twitter_url:
+                  type: string
+                  description: twitter url of the developer
+                  example: https://twitter.com/eseosa78
+                github_url:
+                  type: string
+                  description: github url of the developer
+                  example: https://github.com/ahemedoduola
+              required:
+              - name
+              - title
+              - description
+              - hourly_rate
+              - image_url
+    delete:
+      summary: delete web_developer
+      tags:
+      - Web Developers
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: successful
+components:
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
