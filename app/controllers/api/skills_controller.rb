@@ -16,7 +16,7 @@ class Api::SkillsController < ActionController::API
     skill = Skill.new(skill_params)
 
     if skill.save
-      render json: skill, status: :ok
+      render json: skill, status: :created
     else
       render json: { error: skill.errors.full_messages }, status: :bad_request
     end

@@ -46,3 +46,4 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+/react-front-end/node_modules
