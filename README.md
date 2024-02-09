@@ -4,7 +4,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 The Web Developer Booking App](#-expenses-controller)
+- [📖 The Web Developer Booking App](#-the-web-developer-booking-app)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -13,6 +13,10 @@
     - [Setup](#setup)
     - [Usage](#usage)
     - [Deployment](#deployment)
+    - [Kanban Board](#kanban-board)
+  - [Kanban Board Group Task  Diagram](#kanban-board-group-task--diagram)
+    - [Run Tests](#run-tests)
+    - [API docs](#api-docs)
   - [👥 Author ](#-author-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -40,6 +44,7 @@
   <summary>Languages</summary>
   <ul>
     <li>Ruby</li>
+    <li>React</li>
     <li>Javascript</li>
   </ul>
 </details>
@@ -89,7 +94,7 @@
 ```sh
   cd [YOUR FOLDER]
   git https://github.com/patriciachrysy/Web-Developers-Booking-App.git
-  cd hello-world
+  cd Web-Developers-Booking-App
   bundle install
   npm install
   code .
@@ -103,6 +108,9 @@
 - To run the project, execute the following command:
 
 ```sh
+    rails db:create
+    rails db:migrate
+    npm run build
     rails s
 ```
 
@@ -111,6 +119,34 @@
 **This project is deployed by the author, no permission for deployment by any other client.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Kanban Board
+[Kanban Board](https://github.com/users/patriciachrysy/projects/4/views/1)
+
+Here is the screenshot of our original kaban board state
+## Kanban Board Group Task  Diagram
+![kaban-original-state](./initial-kanban.png)
+
+The final number of team members is 4
+
+
+### Run Tests
+- To run the tests, execute the following command:
+
+```sh
+    rails db:migrate RAILS_ENV=test
+    rspec spec/models
+    rspec spec/controllers
+```
+- The access the api docs [Here](http://localhost/api-docs) 
+
+### API docs
+- To run the project, execute the following command:
+
+```sh
+    rails s
+```
+- The access the api docs [Here](http://localhost/api-docs) 
 
 <!-- AUTHORS -->
 
@@ -124,21 +160,20 @@
 
 👤 **Abu Talha**
 
-- GitHub: [@githubhandle]()
-- Twitter: [@twitterhandle]()
-- LinkedIn: [LinkedIn]()
+- GitHub: [@Abutalha](https://github.com/AbuTalha3)
+- Twitter: [@AbuTalha8T](https://twitter.com/https://twitter.com/AbuTalha8T)
+- LinkedIn: [Abu Talha](https://www.linkedin.com/in/abu-talha-najeeb-akhun-393b8b292/)
 
 👤 **Richard Sikaonga**
 
-- GitHub: [@githubhandle]()
-- Twitter: [@twitterhandle]()
-- LinkedIn: [LinkedIn]()
+- GitHub: [@richie1988](https://github.com/richie1988)
+- LinkedIn: [Richard Sikaonga](https://www.linkedin.com/in/richard-sikaonga-039940275/)
 
 👤 **Samuel Wanza**
 
-- GitHub: [@githubhandle]()
-- Twitter: [@twitterhandle]()
-- LinkedIn: [LinkedIn]()
+- GitHub: [@samuelwanza](https://github.com/Samuelwanza)
+- Twitter: [@samuelmunguti9](https://twitter.com/samuelmunguti9)
+- LinkedIn: [Samuel Wanza](https://www.linkedin.com/in/samuel-munguti/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -175,7 +210,7 @@ If you like this project, kindly drop a start ⭐️ for the [repository](https:
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
- We would like to express our heartfelt gratitude to **Microvere** for the invaluable learning experience they have provided. 
+ We would like to express our heartfelt gratitude to **Microverse** for the invaluable learning experience they have provided. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
