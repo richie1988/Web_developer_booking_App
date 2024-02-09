@@ -22,3 +22,9 @@
   min-height: 100vh;
   gap: 16rem;
 }
+
+.logo-app img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}

@@ -1,12 +1,15 @@
 class Api::ReservationsController < ActionController::API
   include JsonWebToken
 
-  before_action :authenticate_api_user!
+  before_action :authenticate_api_user!, except: [:index]
 
   def index
-    @reservations = @current_user.reservations.includes(:web_developer).all
-
-    render json: @reservations, status: :ok
+    if @current_user
+      @reservations = @current_user.reservations.includes(:web_developer).all
+      render json: @reservations, status: :ok
+    else
+      render json: { error: 'User not found' }, status: :not_found
+    end
   end
 
   def create
@@ -69,20 +72,26 @@ class Api::ReservationsController < ActionController::API
 
   def authenticate_api_user!
     header = request.headers['Authorization']
-
+  
     unless header
       render json: { error: 'Please provide a valid authentication token' }, status: :unauthorized
       return
     end
-
+  
     header = header.split.last
     decoded = jwt_decode(header)
-
+  
+    # Debugging statements
+    puts "Decoded token: #{decoded}"
+  
     unless User.find(decoded[:user_id])
       render json: { error: 'Invalid or expired token' }, status: :unauthorized
       return
     end
-
+  
     @current_user = User.find(decoded[:user_id])
+  
+    # More debugging statements
+    puts "Current User: #{@current_user.inspect}"
   end
 end
