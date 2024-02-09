@@ -49,3 +49,6 @@ yarn-debug.log*
 
 /Gemfile.lock
 /yarn.lock
+
+/react-front-end/node_modules
+
