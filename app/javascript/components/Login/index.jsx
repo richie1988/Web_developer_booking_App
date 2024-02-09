@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginSuccess, loginFailure } from '../../redux/Auth/AuthSlicer';
-
 import axiosInstance from '../../baseURL';
 
 function Login() {
@@ -38,7 +37,7 @@ function Login() {
         let token = user.token;
         localStorage.setItem('token', token);
         dispatch(loginSuccess({ user }));
-        navigate('/Home');
+        navigate('/home');
       })
       .catch((error) => {
         dispatch(loginFailure());

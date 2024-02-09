@@ -18,6 +18,7 @@ const AuthSlice = createSlice({
       setSessionToken(token);
       toast.success(`Logged in Successfully. Welcome ${user.name}`);
       state.user = user;
+      Console.log("User", user);
       state.isAuthenticated = true;
       state.loading = true;
     },

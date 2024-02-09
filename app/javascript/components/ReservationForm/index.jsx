@@ -30,14 +30,30 @@ function ReservationForm() {
   };  
 
   return (
-    <div>
+    <div className="container mt-5">
       <h1>Reservation Form</h1>
       <form onSubmit={handleAddReservation}>
-        <input type="text" name="developerFullName" value={reservation.developerFullName} onChange={handleInputChange} placeholder="Developer Full Name" />
-        <input type="text" name="developerPhoneNumber" value={reservation.developerPhoneNumber} onChange={handleInputChange} placeholder="Developer Phone Number" />
-        <input type="date" name="date" value={reservation.date} onChange={handleInputChange} />
-        <input type="number" name="duration" value={reservation.duration} onChange={handleInputChange} placeholder="Duration" />
-        <button type="submit">Make Reservation</button>
+        <table className="table">
+          <tbody>
+            <tr>
+              <td>Developer Full Name</td>
+              <td><input type="text" name="developerFullName" value={reservation.developerFullName} onChange={handleInputChange} className="form-control" placeholder="Developer Full Name" /></td>
+            </tr>
+            <tr>
+              <td>Developer Phone Number</td>
+              <td><input type="text" name="developerPhoneNumber" value={reservation.developerPhoneNumber} onChange={handleInputChange} className="form-control" placeholder="Developer Phone Number" /></td>
+            </tr>
+            <tr>
+              <td>Date</td>
+              <td><input type="date" name="date" value={reservation.date} onChange={handleInputChange} className="form-control" /></td>
+            </tr>
+            <tr>
+              <td>Duration</td>
+              <td><input type="number" name="duration" value={reservation.duration} onChange={handleInputChange} className="form-control" placeholder="Duration" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="submit" className="btn btn-primary">Make Reservation</button>
       </form>
     </div>
   );

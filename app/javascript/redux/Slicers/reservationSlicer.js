@@ -12,7 +12,10 @@ const reservationsSlice = createSlice({
       state.push(action.payload);
     },
     deleteReservation: (state, action) => {
-      return state.filter((reservation) => reservation.id !== action.payload);
+      const index = state.findIndex(reservation => reservation.id === action.payload);
+      if (index !== -1) {
+        state.splice(index, 1);
+      }
     },
   },
   extraReducers: (builder) => {
@@ -24,7 +27,10 @@ const reservationsSlice = createSlice({
         state.push(action.payload);
       })
       .addCase(deleteReservationAsync.fulfilled, (state, action) => {
-        return state.filter((reservation) => reservation.id !== action.payload);
+        const index = state.findIndex(reservation => reservation.id === action.payload);
+        if (index !== -1) {
+          state.splice(index, 1);
+        }
       });
   },
 });
