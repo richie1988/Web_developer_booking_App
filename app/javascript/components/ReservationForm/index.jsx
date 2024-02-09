@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addReservation } from '../../redux/actions/ReservationsActions';
+import { addReservationAsync } from '../../redux/actions/ReservationsActions';
+import { useNavigate } from 'react-router-dom';
 
 function ReservationForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [reservation, setReservation] = useState({
     developerFullName: '',
     developerPhoneNumber: '',
@@ -15,10 +17,17 @@ function ReservationForm() {
     setReservation({ ...reservation, [e.target.name]: e.target.value });
   };
 
-  const handleAddReservation = (e) => {
+  const handleAddReservation = async (e) => {
     e.preventDefault();
-    dispatch(addReservation(reservation));
-  };
+  
+    try {
+      console.log('Submitting reservation:', reservation);
+      await dispatch(addReservationAsync(reservation));
+      navigate('/my-reservations');
+    } catch (error) {
+      console.error('Error adding reservation:', error);
+    }
+  };  
 
   return (
     <div>

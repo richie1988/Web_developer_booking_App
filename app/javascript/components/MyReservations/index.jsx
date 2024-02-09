@@ -1,14 +1,14 @@
 // MyReservations.jsx
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchReservations } from '../../redux/actions/ReservationsActions';
+import { fetchReservationsAsync } from '../../redux/actions/ReservationsActions';
 
 function MyReservations() {
   const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations);
 
   useEffect(() => {
-    dispatch(fetchReservations());
+    dispatch(fetchReservationsAsync());
   }, [dispatch]);
 
   return (
