@@ -15,6 +15,9 @@ const Sidebar = () => {
 
   return (
     <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+      <div>
+      <img className="logo-img" src={logoImage} alt="logo" />
+      </div>
       <div className="menu-toggle" onClick={toggleSidebar}>
         {isOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
       </div>

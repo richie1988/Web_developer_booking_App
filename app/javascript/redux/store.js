@@ -1,10 +1,17 @@
+redux/store.js
+
 // store.js
 import { configureStore } from '@reduxjs/toolkit';
 import {thunk} from 'redux-thunk';
 import developersReducer from './Slicers/developerSlicer';
-import reservationsReducer from './Slicers/reservationSlicer';
 import authenticationReducer from './Auth/AuthSlicer';
 import skillsReducer from './Slicers/skillsSlicer';
+import reservationsReducer from './Slicers/reservationSlicer';
+// import {
+//   fetchReservationsAsync,
+//   addReservationAsync,
+//   deleteReservationAsync,
+// } from './actions/ReservationsActions';
 
 const rootReducer = {
   developers: developersReducer,
