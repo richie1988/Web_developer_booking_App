@@ -1,16 +1,23 @@
-redux/slicers/reservationSlicer.js
-
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  fetchReservationsAsync,
-  addReservationAsync,
-  deleteReservationAsync,
-} from '../actions/ReservationsActions';
+import { fetchReservationsAsync, addReservationAsync, deleteReservationAsync } from '../actions/ReservationsActions';
 
 const reservationsSlice = createSlice({
   name: 'reservations',
   initialState: [],
-  reducers: {},
+  reducers: {
+    fetchReservations: (state, action) => {
+      return action.payload;
+    },
+    addReservation: (state, action) => {
+      state.push(action.payload);
+    },
+    deleteReservation: (state, action) => {
+      const index = state.findIndex(reservation => reservation.id === action.payload);
+      if (index !== -1) {
+        state.splice(index, 1);
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchReservationsAsync.fulfilled, (state, action) => {
@@ -20,9 +27,14 @@ const reservationsSlice = createSlice({
         state.push(action.payload);
       })
       .addCase(deleteReservationAsync.fulfilled, (state, action) => {
-        return state.filter((reservation) => reservation.id !== action.payload);
+        const index = state.findIndex(reservation => reservation.id === action.payload);
+        if (index !== -1) {
+          state.splice(index, 1);
+        }
       });
   },
 });
+
+export const { fetchReservations, addReservation, deleteReservation } = reservationsSlice.actions;
 
 export default reservationsSlice.reducer;

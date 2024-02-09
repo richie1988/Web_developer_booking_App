@@ -1,61 +1,62 @@
-// ReservationForm.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addReservationAsync } from '../../redux/store';
+import { addReservationAsync } from '../../redux/actions/ReservationsActions';
+import { useNavigate } from 'react-router-dom';
 
-const ReservationForm = () => {
+function ReservationForm() {
   const dispatch = useDispatch();
-
-  const [formData, setFormData] = useState({
-    city: '',
-    reservation_date: '',
-    web_developer_id: 1, // Replace with the actual web developer ID
+  const navigate = useNavigate();
+  const [reservation, setReservation] = useState({
+    developerFullName: '',
+    developerPhoneNumber: '',
+    date: '',
+    duration: '',
   });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleInputChange = (e) => {
+    setReservation({ ...reservation, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleAddReservation = async (e) => {
     e.preventDefault();
-    dispatch(addReservationAsync(formData));
-    setFormData({
-      city: '',
-      reservation_date: '',
-      web_developer_id: 1,
-    });
-  };
+  
+    try {
+      console.log('Submitting reservation:', reservation);
+      await dispatch(addReservationAsync(reservation));
+      navigate('/my-reservations');
+    } catch (error) {
+      console.error('Error adding reservation:', error);
+    }
+  };  
 
   return (
-    <div>
-      <h2>Reservation Form</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="city">City:</label>
-        <input
-          type="text"
-          id="city"
-          name="city"
-          value={formData.city}
-          onChange={handleChange}
-          required
-        />
-
-        <label htmlFor="reservation_date">Reservation Date:</label>
-        <input
-          type="datetime-local"
-          id="reservation_date"
-          name="reservation_date"
-          value={formData.reservation_date}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Submit Reservation</button>
+    <div className="container mt-5">
+      <h1>Reservation Form</h1>
+      <form onSubmit={handleAddReservation}>
+        <table className="table">
+          <tbody>
+            <tr>
+              <td>Developer Full Name</td>
+              <td><input type="text" name="developerFullName" value={reservation.developerFullName} onChange={handleInputChange} className="form-control" placeholder="Developer Full Name" /></td>
+            </tr>
+            <tr>
+              <td>Developer Phone Number</td>
+              <td><input type="text" name="developerPhoneNumber" value={reservation.developerPhoneNumber} onChange={handleInputChange} className="form-control" placeholder="Developer Phone Number" /></td>
+            </tr>
+            <tr>
+              <td>Date</td>
+              <td><input type="date" name="date" value={reservation.date} onChange={handleInputChange} className="form-control" /></td>
+            </tr>
+            <tr>
+              <td>Duration</td>
+              <td><input type="number" name="duration" value={reservation.duration} onChange={handleInputChange} className="form-control" placeholder="Duration" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="submit" className="btn btn-primary">Make Reservation</button>
       </form>
     </div>
   );
-};
+}
 
 export default ReservationForm;
