@@ -1,3 +1,5 @@
+redux/slicers/reservationSlicer.js
+
 import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchReservationsAsync,

@@ -1,15 +1,13 @@
 // DevelopersActions.js
 import axios from 'axios';
-import baseRequest from '../../http-common'
 import axiosInstance from '../../baseURL';
 
-// Web Developers Actions
 export const fetchWebDevelopers = () => async (dispatch) => {
   const headers = {
-    'Authorization': 'Bearer '+localStorage.getItem('token')
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
   }
   try {
-    const response = await axiosInstance.get('/web_developers', {headers: headers});
+    const response = await axiosInstance.get('/web_developers', { headers: headers });
     dispatch({ type: 'FETCH_WEB_DEVELOPERS', payload: response.data });
   } catch (error) {
     console.error('Error fetching web developers:', error.message);
@@ -17,8 +15,11 @@ export const fetchWebDevelopers = () => async (dispatch) => {
 };
 
 export const fetchDeveloper = (id) => async (dispatch) => {
+  const headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  }
   try {
-    const response = await axiosInstance.get(`/web_developers/${id}`, {headers: headers});
+    const response = await axiosInstance.get(`/web_developers/${id}`, { headers: headers });
     dispatch({ type: 'FETCH_DEVELOPER', payload: response.data });
   } catch (error) {
     console.error('Error fetching developer:', error.message);
@@ -27,10 +28,10 @@ export const fetchDeveloper = (id) => async (dispatch) => {
 
 export const addWebDeveloper = (developerData) => async (dispatch) => {
   const headers = {
-    'Authorization': 'Bearer '+localStorage.getItem('token')
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
   }
   try {
-    const response = await axiosInstance.post('/web_developers', developerData, {headers: headers});
+    const response = await axiosInstance.post('/web_developers', developerData, { headers: headers });
     dispatch({ type: 'ADD_WEB_DEVELOPER', payload: response.data });
   } catch (error) {
     console.error('Error adding web developer:', error.message);
@@ -102,20 +103,14 @@ export const deleteWebDeveloperSkill = (id) => async (dispatch) => {
 
 // Skills Actions
 export const fetchSkills = () => async (dispatch) => {
+  const headers = {
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  }
   try {
-    const response = await axiosInstance.get('/skills', {headers: headers});
+    const response = await axiosInstance.get('/skills', { headers: headers });
     dispatch({ type: 'FETCH_SKILLS', payload: response.data });
   } catch (error) {
     console.error('Error fetching skills:', error.message);
-  }
-};
-
-export const addSkill = (skillData) => async (dispatch) => {
-  try {
-    const response = await axiosInstance.post('/skills', skillData, {headers: headers});
-    dispatch({ type: 'ADD_SKILL', payload: response.data });
-  } catch (error) {
-    console.error('Error adding skill:', error.message);
   }
 };
 
