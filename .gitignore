@@ -40,3 +40,10 @@
 /node_modules
 
 /public/apidocs/
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+/react-front-end/node_modules

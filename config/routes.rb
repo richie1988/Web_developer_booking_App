@@ -7,6 +7,13 @@ Rails.application.routes.draw do
     post 'login' => 'users#login'
     post 'register' => 'users#register'
     put 'update-account' => 'users#update'
+    resources :skills
+    resources :web_developers
+    resources :web_developer_skills
+    get 'reservations' => 'reservations#index'
+    post 'new-reservation' => 'reservations#create'
+    put 'reservation/update' => 'reservations#update'
+    delete 'reservation/delete' => 'reservations#destroy'
   end
 
   root 'root#index'
