@@ -19,7 +19,7 @@ class Api::UsersController < ActionController::API
     @user = User.find_by(username: params[:username])
     if @user
       token = jwt_encode(user_id: @user.id)
-      render json: { token: token }, status: :ok
+      render json: { token: }, status: :ok
     else
       render json: { error: 'Invalid username or this user does not exist' }, status: :unauthorized
     end
